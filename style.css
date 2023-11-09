@@ -1,19 +1,36 @@
 
 .accordion-header .accordion-button {
-    background-color:rgb(199, 218, 105);
+    background-color:rgb(236, 229, 147);
     height:110px;
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: pink;
+    background-color: rgb(236, 229, 147);
     height: 46px;
     padding-top:22px;
+
 }
 
 
 
+.harry-potter-item {
+    border-color: rgb(196, 171, 7);
+    border-width: 4px;
+}
+
+.accordion-button:not(.collapsed) .set-name {
+    text-decoration: underline;
+    margin-left: 2rem;
+ 
+}
+
+
 .accordion-button:not(.collapsed) .main-image {
     display: none;
+}
+
+.accordion-body {
+    background-color: rgb(236, 229, 147);
 }
 
 .add-image {
@@ -28,7 +45,10 @@
 
 } */
 
-
+#notes-section {
+    border-width: 2px;
+    border-color:  rgb(196, 171, 7);
+}
 
 
 
