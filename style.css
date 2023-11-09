@@ -1,0 +1,49 @@
+
+.accordion-header .accordion-button {
+    background-color:rgb(199, 218, 105);
+    height:110px;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: pink;
+    height: 46px;
+    padding-top:22px;
+}
+
+
+
+.accordion-button:not(.collapsed) .main-image {
+    display: none;
+}
+
+.add-image {
+    /* min-height: 150px;
+    min-width: 150px;
+    padding: 0; */
+    width: 100%;
+}
+
+/* .add-image:hover {
+    width: 140%;
+
+} */
+
+
+
+
+
+/* .accordion {
+--bs-accordion-active-color: red;
+
+--bs-accordion-active-bg: purple;
+
+} */
+
+/* 
+
+.accordion
+
+.accordion-header,  .accordion-button {
+    height: 100px;
+--bs-accordion-active-height: 5px;
+/* --bs-accordion-active-bg: purple; */
