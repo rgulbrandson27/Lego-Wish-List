@@ -1,17 +1,37 @@
+.accordion {
+    outline: none;
+}
 
+.accordion-button :focus {
+    outline: none;
+}
 .accordion-header .accordion-button {
     background-color:rgb(236, 229, 147);
     height:110px;
+    outline: none;
 }
 
 .accordion-button:not(.collapsed) {
     background-color: rgb(236, 229, 147);
     height: 46px;
     padding-top:22px;
+    outline: none;
 
 }
 
+#hp {
+    display: flex;
+    justify-content: center;
+}
 
+#hp-logo {
+    display: flex;
+    height: 100px;
+    width:160px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+ 
+}
 
 .harry-potter-item {
     border-color: rgb(196, 171, 7);
@@ -21,9 +41,17 @@
 .accordion-button:not(.collapsed) .set-name {
     text-decoration: underline;
     margin-left: 2rem;
+    outline: none;
+    border-bottom:rgb(196, 171, 7) solid 10px;
+    z-index: 100;
  
 }
 
+/* Remove the outline for all elements within the accordion */
+.accordion button,
+.accordion a {
+  outline: none;
+}
 
 .accordion-button:not(.collapsed) .main-image {
     display: none;
@@ -31,6 +59,7 @@
 
 .accordion-body {
     background-color: rgb(236, 229, 147);
+    outline: none;
 }
 
 .add-image {
