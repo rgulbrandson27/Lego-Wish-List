@@ -2,6 +2,9 @@
     outline: none;
 }
 
+
+
+
 .accordion-button :focus {
     outline: none;
 }
@@ -13,9 +16,11 @@
 
 .accordion-button:not(.collapsed) {
     background-color: rgb(236, 229, 147);
-    height: 46px;
-    padding-top:22px;
+    height: 60px;
+    font-size-adjust: smaller;
     outline: none;
+    border-bottom:rgb(196, 171, 7) solid 5px;
+    z-index: 100;
 
 }
 
@@ -42,8 +47,7 @@
     text-decoration: underline;
     margin-left: 2rem;
     outline: none;
-    border-bottom:rgb(196, 171, 7) solid 10px;
-    z-index: 100;
+ 
  
 }
 

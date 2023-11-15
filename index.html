@@ -11,13 +11,106 @@
 <body>
     <div>
 
-        <!-- maybe use navbar instead -->
+        <nav class="navbar navbar-expand-md bg-info opacity-75 ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">My Dream Lego Collection</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Take me to...</a>
+                        <ul class="dropdown-menu ">
+                        <li><a class="dropdown-item" href="#">Architecture</a></li>
+                        <li><a class="dropdown-item" href="#">Botanical</a></li>
+                        <li><a class="dropdown-item" href="#">Disney</a></li>
+                        <li><a class="dropdown-item" href="#">Harry Potter</a></li>
+                        <li><a class="dropdown-item" href="#">Icons</a></li>
+                        <li><a class="dropdown-item" href="#">Just for Fun</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Back to Top</a></li>
+                        </ul>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 
-        <div class="container-fluid text-center" style="height:80px";>
-            <h1>SOME COOL TITLE HERE</h1>
-        </div>
+    <div class="accordion col-sm-12 col-md-10 col-xl-8 mx-auto my-5" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    <div class="header-row hstack gap-5 ms-3 me-2" >
+                        <img src=${coverImage} class="main-image object-fit-contain" style="height:100px; width:100px;"></img>
+                        <h3 class="set-name">${setName}</h3>
+                    </div>
+                </button>
+            </h2>
 
-        <div class="category col-sm-12 col-md-10 col-xl-8" id="hp" style="outline: none;">
+
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                <div class="accordion-body">
+
+                    <div class="row row-main">
+                        <div class="col-sm-6  align-items-center">
+                            <img src="${coverImage}" class="img-fluid"></img>
+                        </div>    <!--end column 1-->
+                        <div class="col-sm-6 pb-sm-4">
+                            <div class="container-fluid pt-3">
+                                <p class="detail price lead">`Price: ${price}` </p>
+                                <p class="detail year lead">`Year: ${year}` </p>
+                                <p class="detail pieces lead">`Pieces: ${pieces}`</p>
+                                <p class="detail availability lead">`Availability: ${availability}`</p>
+                                <p class="link availability lead">`Link: ${link}`</p>
+                                <div class="notes-section mt-4">
+                                    <form>
+                                        <div class="mb-2" >
+                                            <label for="notes" class="form-label lead">Notes</label>
+                                            <textarea class="form-control w-75" id="notes-section" rows="2"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>  <!--end column 2-->
+                    </div>      <!--end main row (row 1)-->
+
+
+
+                    <div class="photos container">          <!--start photo row (row 2)-->
+                                        <!-- <div class="row row-cols-3 row-cols-lg-6 justify-content-evenly"> -->
+                                        <!-- <div class="row d-flex justify-content-evenly g-2"> -->
+                        <div class="row row-cols-2 row-cols-md-4 align-items-center">
+                            <div class="col">
+                                <img id="add-image-1" src="${image2}" class="object-fit-contain m-1 add-image"></img>
+                            </div> 
+                             <div class="col"> 
+                                <img id="add-image-2" src="${image3}" class="object-fit-contain m-1 add-image"></img>
+                            </div>  
+                             <div class="col">   
+                                <img id="add-image-3" src="${image4}" class="object-fit-contain m-1 add-image" ></img>
+                            </div> 
+                            <div class="col"> 
+                                <img id="add-image-4" src="${image5}" class="object-fit-contain m-1 add-image" ></img>
+                            </div> 
+                            
+                        </div>       <!--end inner row-->
+                    </div>    <!--end photo row (row 2)-->
+
+
+                    
+                </div>   <!--end accordion body-->
+            </div>
+
+        </div>    <!--end accordion item-->
+    </div> 
+
+
+<!-- BELOW THIS LINE IS HARD-CODED/PROTOTYPE         -->
+        <br> <br> <br> <br> <br> <br> <br> <br>  <br> <br> <br> <br>
+        <div class="category col-sm-12 col-md-10 col-xl-8" id="hp">
             <img src="https://i.pinimg.com/564x/7d/c6/0e/7dc60e6ce5fa116c289368af0284d5e8.jpg" id="hp-logo"></img>
         </div>
 
@@ -52,7 +145,7 @@
                                     <div class="notes-section mt-4">
                                         <form>
                                             <div class="mb-2" >
-                                                <label for="exampleInputEmail1" class="form-label lead">Notes</label>
+                                                <label for="notes" class="form-label lead">Notes</label>
                                                 <textarea class="form-control w-75" id="notes-section" rows="2"></textarea>
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
@@ -92,10 +185,13 @@
             </div>    <!--end accordion item-->
         </div>  <!--end accordion-->
 
-        <div class="category col-sm-12 col-md-10 col-xl-8">BOTANICAL</div>  <div class="category col-sm-12 col-md-10 col-xl-8">ARCHITECTURE
         </div>
 
     </div>
+
+<p>
+    
+</p>
 
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <script src="index.js"></script>
