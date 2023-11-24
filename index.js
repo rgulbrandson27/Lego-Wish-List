@@ -1,4 +1,4 @@
-
+// 
 class LegoSet {
     constructor (setName, setId, categoryName, categoryId, coverImage, price, year, pieces, availability, link, notes, image2, image3, image4, image5) {
     this.setName = setName;
@@ -18,87 +18,113 @@ class LegoSet {
     this.image5 = image5;
 }}
 
-
-
     const url = "https://644435db914c816083b638ce.mockapi.io/LegoSets";
 
 
-    $.get(url).then(data => 
-        console.log(data));
-
-    $.get(url).then(data => {
-    data.map(LegoSet => {
-        $('body').append(
-            `
-            <div class="accordion col-sm-12 col-md-10 col-xl-8 mx-auto my-5" id="accordionPanelsStayOpenExample">
-            <div class="accordion-item">
+    $.get(url).then((data) => {
+       
+        data.forEach((LegoSet) => {
+            
+            $('#botanical-accordion').append(`
+            
+            <div class="accordion-item botanical-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                        <div class="header-row hstack gap-5 ms-3 me-2" >
-                            <img src="${coverImage}" class="main-image object-fit-contain" style="height:100px; width:100px;"></img>
-                            <h3 class="set-name">${setName}</h3>
+                        <div class="header-row hstack gap-5 ms-3 me-2 id=botanical-header" >
+                            <img src="${LegoSet.coverImage}" class="main-image object-fit-contain" style="height:100px; width:100px;"></img>
+                            <h3 class="set-name">${LegoSet.setName}</h3>
                         </div>
                     </button>
                 </h2>
-    
-    
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
-                    <div class="accordion-body">
-    
-                        <div class="row row-main">
-                            <div class="col-sm-6  align-items-center">
-                                <img src="${coverImage}" class="img-fluid"></img>
-                            </div>    <!--end column 1-->
-                            <div class="col-sm-6 pb-sm-4">
-                                <div class="container-fluid pt-3">
-                                    <p class="detail price lead">${price} </p>
-                                    <p class="detail year lead">${year}</p>
-                                    <p class="detail pieces lead">${pieces}</p>
-                                    <p class="detail availability lead">${availability}</p>
-                                    <p class="link availability lead">${link}</p>
-                                    <div class="notes-section mt-4">
-                                        <form>
-                                            <div class="mb-2" >
-                                                <label for="notes" class="form-label lead">Notes</label>
-                                                <textarea class="form-control w-75" id="notes-section" rows="2"></textarea>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>  
-                        </div>      
-    
-    
-    
-                        <div class="photos container">         
-                                     
+            </div>
+
+         
+
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <div class="row row-main">
+                        <div class="col-sm-6  align-items-center">
+                            <img src="${LegoSet.coverImage}" class="img-fluid"></img>
+                        </div>   
+                        <div class="col-sm-6 pb-sm-4">
+                          <div class="container-fluid pt-3">
+                              <p class="detail price lead">Price: ${LegoSet.price} </p>
+                              <p class="detail year lead">Year: ${LegoSet.year}</p>
+                              <p class="detail pieces lead">Pieces: ${LegoSet.pieces}</p>
+                              <p class="detail availability lead">Availability: ${LegoSet.availability}</p>
+                              <p class="link availability lead">Link: ${LegoSet.link}</p>
+                              
+                              
+                          </div>
+                        </div>  
+                      </div>   
+                     
+                   
+                      <div class="row photos container row-cols-2 row-cols-md-4 align-items-center">
+                          <div class="col">
+                              <img id="add-image-1" src="${LegoSet.image2}" class="object-fit-contain m-1 add-image"></img>
+                          </div> 
+                          <div class="col"> 
+                              <img id="add-image-2" src="${LegoSet.image3}" class="object-fit-contain m-1 add-image"></img>
+                          </div>  
+                          <div class="col">   
+                              <img id="add-image-3" src="${LegoSet.image4}" class="object-fit-contain m-1 add-image" ></img>
+                          </div> 
+                          <div class="col"> 
+                              <img id="add-image-4" src="${LegoSet.image5}" class="object-fit-contain m-1 add-image" ></img>
+                          </div> 
+                    </div>      
+                </div>   
+            </div>
+            <hr id="item-hr">  
+
+          `);  
+        })});
+
+
+       
+
+      
+
             
-                            <div class="row row-cols-2 row-cols-md-4 align-items-center">
-                                <div class="col">
-                                    <img id="add-image-1" src="${image2}" class="object-fit-contain m-1 add-image"></img>
-                                </div> 
-                                 <div class="col"> 
-                                    <img id="add-image-2" src="${image3}" class="object-fit-contain m-1 add-image"></img>
-                                </div>  
-                                 <div class="col">   
-                                    <img id="add-image-3" src="${image4}" class="object-fit-contain m-1 add-image" ></img>
-                                </div> 
-                                <div class="col"> 
-                                    <img id="add-image-4" src="${image5}" class="object-fit-contain m-1 add-image" ></img>
-                                </div> 
-                                
-                            </div>       
-                        </div>    
-    
-    
-                        
-                    </div>  
-                </div>
-    
-            </div>   
-        </div> 
-            `
-        )
-   })} );
+//             `
+//         )
+//    })} );
             
+// Get the reference to the output container
+// const outputContainer = document.getElementById('output-container');
+
+// Iterate over each object in the array
+// data.forEach((item) => {
+  // Create a div element for each object
+//   const divElement = document.createElement('div');
+
+  // Set the inner HTML of the div to display the properties
+//   divElement.innerHTML = `<p>ID: ${item.id}</p><p>Name: ${item.name}</p><p>Age: ${item.age}</p>`;
+
+  // Append the div to the output container
+//   outputContainer.appendChild(divElement);
+// });
+
+
+
+ // console.log(LegoSet);
+
+     
+        // const paragraph = document.getElementById('test');
+        // console.log({test});
+
+//         data.forEach((LegoSet) => {
+//           $(`h1`).append(
+//             $(`
+//             <p>${LegoSet.year}</p>
+//             <p>${LegoSet.setName}</p>
+
+//             `)
+//           )
+
+
+     
+        
+//     })
+// });

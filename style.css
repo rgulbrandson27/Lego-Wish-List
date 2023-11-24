@@ -1,3 +1,54 @@
+
+.category-heading {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    margin-top: 30px;
+    padding: 40px;
+    
+}
+
+.add-button {
+    width: 100px;
+    height: 40px;
+    align-self: center;
+    margin-right: 0;
+    margin-left: auto;
+    border-width: 3px;
+    font-weight: 600;
+}
+
+#add-button-botanical {
+    color: rgb(54, 125, 10);
+    border-color: rgb(54, 125, 10);
+}
+
+#add-button-botanical:hover {
+    background-color:rgb(54, 125, 10);
+    color: white;
+}
+
+.category-title {
+    align-self: center;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+}
+
+#botanical-heading {
+    color:rgb(54, 125, 10);
+}
+
+.botanical {
+    color:rgb(54, 125, 10);
+}
+
+
+.modal-body {
+    background-color:rgb(229, 227, 227);
+}
+
+
 .accordion {
     outline: none;
 }
@@ -9,20 +60,22 @@
     outline: none;
 }
 .accordion-header .accordion-button {
-    background-color:rgb(236, 229, 147);
+    background-color:rgb(192, 228, 190);
     height:110px;
     outline: none;
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: rgb(236, 229, 147);
+    background-color: rgb(166, 236, 147);
     height: 60px;
     font-size-adjust: smaller;
     outline: none;
     border-bottom:rgb(196, 171, 7) solid 5px;
     z-index: 100;
-
+ 
 }
+
+
 
 #hp {
     display: flex;

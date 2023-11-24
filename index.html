@@ -10,7 +10,6 @@
 </head>
 <body>
     <div>
-
         <nav class="navbar navbar-expand-md bg-info opacity-75 ">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">My Dream Lego Collection</a>
@@ -38,168 +37,147 @@
         </nav>
     </div>
 
-    <div class="accordion col-sm-12 col-md-10 col-xl-8 mx-auto my-5" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                    <div class="header-row hstack gap-5 ms-3 me-2" >
-                        <img src=${coverImage} class="main-image object-fit-contain" style="height:100px; width:100px;"></img>
-                        <h3 class="set-name">${setName}</h3>
-                    </div>
-                </button>
-            </h2>
+
+    <div class="category-heading col-sm-12 col-md-10 col-xl-8 mx-auto">
+        <h1 class="category-title" id="botanical-heading">BOTANICAL COLLECTION</h1>
+        <button class="btn btn-outline-primary add-button" type="button" id="add-button-botanical" data-bs-toggle="modal" data-bs-target="#botanical-modal">Add New</button>
+    </div>
 
 
-            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
-                <div class="accordion-body">
-
-                    <div class="row row-main">
-                        <div class="col-sm-6  align-items-center">
-                            <img src="${coverImage}" class="img-fluid"></img>
-                        </div>    <!--end column 1-->
-                        <div class="col-sm-6 pb-sm-4">
-                            <div class="container-fluid pt-3">
-                                <p class="detail price lead">`Price: ${price}` </p>
-                                <p class="detail year lead">`Year: ${year}` </p>
-                                <p class="detail pieces lead">`Pieces: ${pieces}`</p>
-                                <p class="detail availability lead">`Availability: ${availability}`</p>
-                                <p class="link availability lead">`Link: ${link}`</p>
-                                <div class="notes-section mt-4">
-                                    <form>
-                                        <div class="mb-2" >
-                                            <label for="notes" class="form-label lead">Notes</label>
-                                            <textarea class="form-control w-75" id="notes-section" rows="2"></textarea>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>  <!--end column 2-->
-                    </div>      <!--end main row (row 1)-->
-
-
-
-                    <div class="photos container">          <!--start photo row (row 2)-->
-                                        <!-- <div class="row row-cols-3 row-cols-lg-6 justify-content-evenly"> -->
-                                        <!-- <div class="row d-flex justify-content-evenly g-2"> -->
-                        <div class="row row-cols-2 row-cols-md-4 align-items-center">
-                            <div class="col">
-                                <img id="add-image-1" src="${image2}" class="object-fit-contain m-1 add-image"></img>
-                            </div> 
-                             <div class="col"> 
-                                <img id="add-image-2" src="${image3}" class="object-fit-contain m-1 add-image"></img>
-                            </div>  
-                             <div class="col">   
-                                <img id="add-image-3" src="${image4}" class="object-fit-contain m-1 add-image" ></img>
-                            </div> 
-                            <div class="col"> 
-                                <img id="add-image-4" src="${image5}" class="object-fit-contain m-1 add-image" ></img>
-                            </div> 
-                            
-                        </div>       <!--end inner row-->
-                    </div>    <!--end photo row (row 2)-->
-
-
-                    
-                </div>   <!--end accordion body-->
+    <div class="modal fade" id="botanical-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="botanical-modal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="botanical-modal">Add to Botanical Collection</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
-        </div>    <!--end accordion item-->
-    </div> 
+            <div class="modal-body container-fluid">
+
+                <div class="mb-3">
+                    <label for="setName" class="form-label">Set Name</label>
+                    <input type="text" class="form-control" id="price" placeholder="Enter name of Lego set" aria-label="Name of Set">
+                </div>
+
+                <div class="row">    
+                    <div class="col-4 mx-auto mb-1">
+                        <label for="price" class="form-label">Enter Price</label>
+                        <div class="input-group mb-1">
+                            <span class="input-group-text">$</span>
+                            <input type="text" class="form-control" aria-label="Amount">
+                        </div>  
+                    </div>
+
+                    <div class="col-4 mx-auto mb-2">
+                        <label for="year" class="form-label">Production Year</label>
+                        <input type="number" class="form-control" id="year" aria-label="Year">
+                    </div>  
+                </div>
+
+                <div class="row">    
+                    <div class="col-4 mx-auto mb-1">
+                        <label for="pieces" class="form-label">Number of Pieces</label>
+                        <input type="number" class="form-control" id="pieces" aria-label="Number of Pieces">
+                    </div>  
+
+                    <div class="col-4 mx-auto mb-1">
+                        <label for="availability" class="form-label">Availability</label>
+                        <input type="text" class="form-control" id="availability" aria-label="Availability">
+                    </div>  
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="botanical-link" class="form-label">Link</label>
+                    <input type="text" class="form-control" id="botanical-link" placeholder="add link here">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Add cover image</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Cover image url">
+                </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Add up to four additional images</label>
+                    <input type="url" class="form-control mb-1" id="image-2" placeholder="Image 1 url">
+                    <input type="url" class="form-control mb-1" id="image-3" placeholder="Image 2 url">
+                    <input type="url" class="form-control mb-1" id="image-4" placeholder="Image 3 url">
+                    <input type="url" class="form-control mb-1" id="image-5" placeholder="Image 4 url">
+
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
 
 <!-- BELOW THIS LINE IS HARD-CODED/PROTOTYPE         -->
-        <br> <br> <br> <br> <br> <br> <br> <br>  <br> <br> <br> <br>
+        <!-- <br> <br> <br> <br> <br> <br> <br> <br>  <br> <br> <br> <br>
         <div class="category col-sm-12 col-md-10 col-xl-8" id="hp">
             <img src="https://i.pinimg.com/564x/7d/c6/0e/7dc60e6ce5fa116c289368af0284d5e8.jpg" id="hp-logo"></img>
-        </div>
+        </div> -->
 
 
-        <div class="accordion harry-potter col-sm-12 col-md-10 col-xl-8 mx-auto" id="accordionPanelsStayOpenExample" style="outline: none;">
-            <div class="accordion-item harry-potter-item" style="outline: none;">
+        <div class="accordion botanical col-sm-12 col-md-10 col-xl-8 mx-auto" id="botanical-accordion">
+            <div class="accordion-item botanical-item">
+              
+            </div>
+               
+        </div>   
+  
 
-                <h2 class="accordion-header" style="outline: none;" >
-                    <button class="accordion-button collapsed" style="outline: none;" type="button"  data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                        <div class="header-row hstack gap-5 ms-3 me-2" >
-                            <img src="https://www.lego.com/cdn/cs/set/assets/bltfbd377eafb67041a/76417.png?format=webply&fit=bounds&quality=60&width=792&height=792&dpr=2" class="main-image object-fit-contain" style="height:100px; width:100px;"></img>
-                            <h3 class="set-name">Gringotts™ Wizarding Bank – Collectors' Edition</h3>
-                        </div>
-                    </button>
-                </h2>
-
-
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" style="outline: none;">
-                    <div class="accordion-body harry-potter-body" style="outline: none;">
-
-                        <div class="row row-main">
-                            <div class="col-sm-6  align-items-center">
-                                <img src="https://www.lego.com/cdn/cs/set/assets/bltfbd377eafb67041a/76417.png?format=webply&fit=bounds&quality=60&width=792&height=792&dpr=2" class="img-fluid"></img>
-                            </div>    <!--end column 1-->
-                            <div class="col-sm-6 pb-sm-4">
-                                <div class="container-fluid pt-3">
-                                    <p class="detail price lead">Price: $429.99 </p>
-                                    <p class="detail year lead">Year: 2024 </p>
-                                    <p class="detail pieces lead">Pieces: 4,803 </p>
-                                    <p class="detail availability lead">Availability: Exclusive</p>
-                                    <p class="link availability lead">Link: www.lego.com </p>
-                                    <div class="notes-section mt-4">
-                                        <form>
-                                            <div class="mb-2" >
-                                                <label for="notes" class="form-label lead">Notes</label>
-                                                <textarea class="form-control w-75" id="notes-section" rows="2"></textarea>
-                                            </div>
-                                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>  <!--end column 2-->
-                        </div>      <!--end main row (row 1)-->
-
-
-
-                        <div class="photos container">          <!--start photo row (row 2)-->
-                                            <!-- <div class="row row-cols-3 row-cols-lg-6 justify-content-evenly"> -->
-                                            <!-- <div class="row d-flex justify-content-evenly g-2"> -->
-                            <div class="row row-cols-2 row-cols-md-4 align-items-center">
-                                <div class="col">
-                                    <img id="add-image-1" src="https://www.lego.com/cdn/cs/set/assets/blt3db77dbc731f5eeb/76417_alt1.png?format=webply&fit=bounds&quality=60&width=640&height=640&dpr=2" class="object-fit-contain m-1 add-image"></img>
-                                </div> 
-                                 <div class="col"> 
-                                    <img id="add-image-2" src="https://www.lego.com/cdn/cs/set/assets/blt8b282234ad44638e/76417_alt3.png?format=webply&fit=bounds&quality=60&width=960&height=960&dpr=2" class="object-fit-contain m-1 add-image"></img>
-                                </div>  
-                                 <div class="col">   
-                                    <img id="add-image-3" src="https://www.lego.com/cdn/cs/set/assets/bltb06c34f4bda992f4/76417_alt4.png?format=webply&fit=bounds&quality=60&width=960&height=960&dpr=2" class="object-fit-contain m-1 add-image" ></img>
-                                </div> 
-                                <div class="col"> 
-                                    <img id="add-image-4" src="https://www.lego.com/cdn/cs/set/assets/bltb0fd43c41129ac09/76417_alt5.png?format=webply&fit=bounds&quality=60&width=960&height=960&dpr=2" class="object-fit-contain m-1 add-image" ></img>
-                                </div> 
-                                
-                            </div>       <!--end inner row-->
-                        </div>    <!--end photo row (row 2)-->
-
-
-                        
-                    </div>   <!--end accordion body-->
-                </div>
-
-            </div>    <!--end accordion item-->
-        </div>  <!--end accordion-->
-
-        </div>
-
-    </div>
-
-<p>
     
-</p>
 
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <script src="index.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
 </body>
-
-
 </html>
 
+<!-- <div class="row row-main">
+    <div class="col-sm-6  align-items-center">
+        <img src="https://www.lego.com/cdn/cs/set/assets/bltfbd377eafb67041a/76417.png?format=webply&fit=bounds&quality=60&width=792&height=792&dpr=2" class="img-fluid"></img>
+    </div>   
+    <div class="col-sm-6 pb-sm-4">
+        <div class="container-fluid pt-3">
+            <p class="detail price lead">Price: $429.99 </p>
+            <p class="detail year lead">Year: 2024 </p>
+            <p class="detail pieces lead">Pieces: 4,803 </p>
+            <p class="detail availability lead">Availability: Exclusive</p>
+            <p class="link availability lead">Link: www.lego.com </p>
+            <div class="notes-section mt-4">
+                <form>
+                    <div class="mb-2" >
+                        <label for="notes" class="form-label lead">Notes</label>
+                        <textarea class="form-control w-75" id="notes-section" rows="2"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>  
+</div>       -->
 
+
+<!-- <div class="photos container">          
+    <div class="row row-cols-2 row-cols-md-4 align-items-center">
+        <div class="col">
+            <img id="add-image-1" src="https://www.lego.com/cdn/cs/set/assets/blt3db77dbc731f5eeb/76417_alt1.png?format=webply&fit=bounds&quality=60&width=640&height=640&dpr=2" class="object-fit-contain m-1 add-image"></img>
+        </div> 
+         <div class="col"> 
+            <img id="add-image-2" src="https://www.lego.com/cdn/cs/set/assets/blt8b282234ad44638e/76417_alt3.png?format=webply&fit=bounds&quality=60&width=960&height=960&dpr=2" class="object-fit-contain m-1 add-image"></img>
+        </div>  
+         <div class="col">   
+            <img id="add-image-3" src="https://www.lego.com/cdn/cs/set/assets/bltb06c34f4bda992f4/76417_alt4.png?format=webply&fit=bounds&quality=60&width=960&height=960&dpr=2" class="object-fit-contain m-1 add-image" ></img>
+        </div> 
+        <div class="col"> 
+            <img id="add-image-4" src="https://www.lego.com/cdn/cs/set/assets/bltb0fd43c41129ac09/76417_alt5.png?format=webply&fit=bounds&quality=60&width=960&height=960&dpr=2" class="object-fit-contain m-1 add-image" ></img>
+        </div> 
+        
+    </div>      
+</div>     -->
