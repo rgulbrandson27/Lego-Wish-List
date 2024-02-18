@@ -21,17 +21,17 @@
         "categoryId": 2,
         "categoryName": "Botanical",
         "price": "49.99",
-        "Year": 2023,
-        "NumberOfPieces": 812,
+        "year": 2023,
+        "pieces": 812,
         "Availability": "Current",
         "link": "https://www.lego.com/en-us/product/dried-flower-centerpiece-10314",
-        "CoverImage": "https://www.lego.com/cdn/cs/set/assets/bltb76f113cca5cced0/10314.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
+        "coverImage": "https://www.lego.com/cdn/cs/set/assets/bltb76f113cca5cced0/10314.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
         "image1": "https://www.lego.com/cdn/cs/set/assets/blt34259adb596a1d20/10314_alt1.png?format=webply&fit=bounds&quality=60&width=1200&height=1200&dpr=2",
         "image2": "https://www.lego.com/cdn/cs/set/assets/blt61458009407dd0e9/10314_alt4.png?format=webply&fit=bounds&quality=60&width=1200&height=1200&dpr=2",
         "image3": "https://www.lego.com/cdn/cs/set/assets/blt03dc8ef18c74ee8d/10314_alt2.png?format=webply&fit=bounds&quality=60&width=1200&height=1200&dpr=2",
         "image4": "https://www.lego.com/cdn/cs/set/assets/blt0b166175f7dea717/10314_alt8.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
-        "Notes": "",
-        "SetId": "10314"
+        "notes": "",
+        "setId": "10314"
       },
     {
      "setName": "Wildflower Bouquet",
@@ -99,6 +99,6 @@
      "image3": "https://www.lego.com/cdn/cs/set/assets/blt4af6ca0b5d5855d2/10281_alt6.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
      "image4": "https://www.lego.com/cdn/cs/set/assets/bltaa32072a5be42722/10281_alt12.jpg?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
      "notes": "",
-     "SetId": "10281"
+     "setId": "10281"
     }
    ]

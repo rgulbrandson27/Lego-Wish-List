@@ -9,34 +9,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <nav class="navbar navbar-expand-md bg-info opacity-75 ">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">My Dream Lego Collection</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Take me to...</a>
-                        <ul class="dropdown-menu ">
-                        <li><a class="dropdown-item" href="#">Architecture</a></li>
-                        <li><a class="dropdown-item" href="#">Botanical</a></li>
-                        <li><a class="dropdown-item" href="#">Disney</a></li>
-                        <li><a class="dropdown-item" href="#">Harry Potter</a></li>
-                        <li><a class="dropdown-item" href="#">Icons</a></li>
-                        <li><a class="dropdown-item" href="#">Just for Fun</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Back to Top</a></li>
-                        </ul>
-                    </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
 
+
+    <nav class="navbar navbar-expand-sm bg-info opacity-75 ">
+        <div class="container-fluid">
+                    
+                <ul class="navbar-nav">
+                    
+                    <li class="navbar-brand" href="#">My Dream Lego Collection</li>
+                        
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle secondary opacity-100" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Take me to...</a>
+                            <ul class="dropdown-menu info">
+                                <li><a class="dropdown-item" href="#">Architecture</a></li>
+                                <li><a class="dropdown-item" href="#">Botanical</a></li>
+                                <li><a class="dropdown-item" href="#">Disney</a></li>
+                                <li><a class="dropdown-item" href="#">Harry Potter</a></li>
+                                <li><a class="dropdown-item" href="#">Icons</a></li>
+                                <li><a class="dropdown-item" href="#">Just for Fun</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Back to Top</a></li>
+                            </ul>
+                    </li>
+                </ul>
+        </div>
+    </nav>
+
+
+
+
+<!-- TO BE USED WHEN A WHOLE NEW CATEGORY IS ENTERED     -->
 
     <div class="category-heading col-sm-12 col-md-10 col-xl-8 mx-auto">
         <h1 class="category-title" id="botanical-heading">BOTANICAL COLLECTION</h1>
@@ -44,11 +46,20 @@
     </div>
 
 
+    <div class="accordion botanical col-sm-12 col-md-10 col-xl-8 mx-auto" id="botanical-accordion">
+     
+
+
+    
+
+<!-- FORM/MODAL FOR ADDING NEW LEGO SETS     -->
+
+
     <div class="modal fade" id="botanical-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="botanical-modal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="botanical-modal">Add to Botanical Collection</h1>
+              <h1 class="modal-title fs-5" id="botanical-modal">Add to Wish List</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -101,36 +112,20 @@
                     <input type="url" class="form-control mb-1" id="image-3" placeholder="Image 2 url">
                     <input type="url" class="form-control mb-1" id="image-4" placeholder="Image 3 url">
                     <input type="url" class="form-control mb-1" id="image-5" placeholder="Image 4 url">
-
                   </div>
             </div>
+
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Update</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-primary">Add</button>
             </div>
+
           </div>
         </div>
+        
       </div>
 
 
-
-
-<!-- BELOW THIS LINE IS HARD-CODED/PROTOTYPE         -->
-        <!-- <br> <br> <br> <br> <br> <br> <br> <br>  <br> <br> <br> <br>
-        <div class="category col-sm-12 col-md-10 col-xl-8" id="hp">
-            <img src="https://i.pinimg.com/564x/7d/c6/0e/7dc60e6ce5fa116c289368af0284d5e8.jpg" id="hp-logo"></img>
-        </div> -->
-
-
-        <div class="accordion botanical col-sm-12 col-md-10 col-xl-8 mx-auto" id="botanical-accordion">
-            <div class="accordion-item botanical-item">
-              
-            </div>
-               
-        </div>   
-  
-
-    
 
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <script src="index.js"></script>
@@ -138,8 +133,8 @@
 
 </body>
 </html>
-
-<!-- <div class="row row-main">
+<!-- 
+ <div class="row row-main">
     <div class="col-sm-6  align-items-center">
         <img src="https://www.lego.com/cdn/cs/set/assets/bltfbd377eafb67041a/76417.png?format=webply&fit=bounds&quality=60&width=792&height=792&dpr=2" class="img-fluid"></img>
     </div>   
@@ -161,7 +156,7 @@
             </div>
         </div>
     </div>  
-</div>       -->
+</div>        -->
 
 
 <!-- <div class="photos container">          
@@ -181,3 +176,15 @@
         
     </div>      
 </div>     -->
+
+
+
+        <!-- <div class="accordion disney col-sm-12 col-md-10 col-xl-8 mx-auto" id="disney-accordion">
+                -->
+  
+  
+
+        <!-- HARRY POTTER LOGO
+        <div class="category col-sm-12 col-md-10 col-xl-8" id="hp">
+            <img src="https://i.pinimg.com/564x/7d/c6/0e/7dc60e6ce5fa116c289368af0284d5e8.jpg" id="hp-logo"></img>
+        </div>
