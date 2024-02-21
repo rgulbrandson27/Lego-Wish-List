@@ -45,26 +45,21 @@
   background-color: rgb(229, 227, 227);
 }
 
-.accordion {
-  outline: none;
-}
-
 .accordion-button :focus {
   outline: none;
 }
+
 .accordion-header .accordion-button {
   background-color: rgb(192, 228, 190);
   height: 110px;
   outline: none;
+  border: none;
 }
 
 .accordion-button:not(.collapsed) {
   background-color: rgb(192, 228, 190);
   height: 60px;
   font-size-adjust: smaller;
-  outline: none;
-  /* border-bottom:rgb(54, 125, 10) solid 5px; */
-  z-index: 100;
 }
 .accordion-button:not(.collapsed) .set-name {
   text-decoration: underline;
@@ -72,26 +67,6 @@
   outline: none;
 }
 
-/* #hp {
-    display: flex;
-    justify-content: center;
-}
-
-#hp-logo {
-    display: flex;
-    height: 100px;
-    width:160px;
-    margin-bottom: 20px;
-    margin-top: 20px;
- 
-}
-
-.harry-potter-item {
-    border-color: rgb(196, 171, 7);
-    border-width: 4px;
-} */
-
-/* Remove the outline for all elements within the accordion */
 .accordion button,
 .accordion a {
   outline: none;
@@ -114,15 +89,15 @@
 }
 
 .cover-image:hover {
-  z-index: "500";
+  z-index: 5;
   transform: scale(1.1);
 }
 
 .add-image:hover {
   /* width: 200%; */
-  z-index: "500";
+  z-index: 5;
   transform: scale(1.4);
-  border: 20px white solid;
+  /* border: 20px white solid; */
 }
 
 .lego-link {
@@ -134,23 +109,30 @@
   transform: scale(1.2);
 }
 
-#notes-section {
+/* #notes-section {
   border-width: 2px;
   border-color: rgb(196, 171, 7);
-}
-
-/* .accordion {
---bs-accordion-active-color: red;
-
---bs-accordion-active-bg: purple;
-
 } */
 
-/* 
+/* .accordion-header .accordion-button {
+  background-color: rgb(192, 228, 190);
+  height: 110px;
+  outline: none;
+} */
 
-.accordion
+/* .accordion-button:not(.collapse) {
+  background-color: rgb(192, 228, 190);
+  height: 60px;
+  font-size-adjust: smaller;
+  outline: none;
+} */
 
-.accordion-header,  .accordion-button {
-    height: 100px;
---bs-accordion-active-height: 5px;
-/* --bs-accordion-active-bg: purple; */
+/* .accordion button,
+.accordion a {
+  outline: none;
+}
+
+.accordion-body {
+  background-color: rgb(192, 228, 190);
+  outline: none;
+} */
