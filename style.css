@@ -63,7 +63,7 @@
 }
 .accordion-button:not(.collapsed) .set-name {
   text-decoration: underline;
-  margin-left: 2rem;
+  margin-left: 3rem;
   outline: none;
 }
 
@@ -109,6 +109,38 @@
   transform: scale(1.2);
 }
 
+.photos {
+  margin-top: 20px;
+}
+
+#delete-button {
+  height: 24px;
+  width: 60px;
+  margin-left: -10px;
+  margin-bottom: -10px;
+  font-size: small;
+  text-align: center;
+  text-justify: center;
+  padding: 0;
+  opacity: 80%;
+}
+
+#update-button {
+  height: 24px;
+  width: 60px;
+  margin-left: -10px;
+  margin-right: 16px;
+  margin-bottom: -10px;
+  font-size: small;
+  text-align: center;
+  text-justify: center;
+  padding: 0;
+  opacity: 80%;
+}
+
+.required {
+  color: red;
+}
 /* #notes-section {
   border-width: 2px;
   border-color: rgb(196, 171, 7);

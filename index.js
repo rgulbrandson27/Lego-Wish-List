@@ -66,7 +66,7 @@ $.get(url).then((data) => {
                     </button>
                 </h2>
 
-            <div id="${LegoSet.setId}" class="accordion-collapse collapse">
+            <div id="${LegoSet.setId}" class="accordion-collapse collapse justify-content-center">
                 <div class="accordion-body">
                     <div class="row row-main">
                         <div class="col-sm-6  align-items-center">
@@ -84,7 +84,7 @@ $.get(url).then((data) => {
                     </div>   
                      
                    
-                      <div class="row photos container row-cols-2 row-cols-md-4 align-items-center">
+                      <div class="row photos container row-cols-2 row-cols-md-4">
                           <div class="col">
                               <img id="add-image-1" src="${LegoSet.image2}" class="object-fit-contain m-1 add-image"/>
                           </div> 
@@ -97,7 +97,10 @@ $.get(url).then((data) => {
                           <div class="col"> 
                               <img id="add-image-4" src="${LegoSet.image5}" class="object-fit-contain m-1 add-image" />
                           </div> 
-                      </div>  
+                      </div> 
+                      <button type="button" class="btn btn-outline-success" onclick="updateLegoSet(${LegoSet.setId})"} id="update-button">Edit</button>
+
+                      <button type="button" onclick="deleteLegoSet($(setId))"    class="btn btn-outline-danger" id="delete-button">Delete</button>
 
                 </div>   
             </div>
@@ -107,6 +110,60 @@ $.get(url).then((data) => {
           `);
   });
 });
+
+$(function () {
+  $("#add-button").on("click", function (e) {
+    e.preventDefault();
+    let setNameValue = $("#setName").val();
+    let setIdValue = $("#setId").val();
+
+    if (setNameValue === "" || setIdValue === "") {
+      alert("Set Name and Set Id are required fields.");
+      return false;
+    } else {
+      $.post(url, {
+        setName: $("#setName").val(),
+        categoryId: "2",
+        categoryName: "Botanical",
+        price: $("#price").val(),
+        year: $("#year").val(),
+        pieces: $("#pieces").val(),
+        availability: $("#availability").val(),
+        link: $("#botanical-link").val(),
+        coverImage: $("#coverImage").val(),
+        image2: $("#image-2").val(),
+        image3: $("#image-3").val(),
+        image4: $("#image-4").val(),
+        image5: $("#image-5").val(),
+        setId: $("#setId").val(),
+      }).done(function () {
+        console.log("Form submitted successfully!");
+        $("#botanical-modal").modal("hide");
+      });
+    }
+  });
+});
+
+function clearFields() {
+  $("#setName").val("");
+  $("#setId").val("");
+  $("#price").val("");
+  $("#year").val("");
+  $("#pieces").val("");
+  $("#availability").val("default");
+  $("#botanical-link").val("");
+  $("#coverImage").val("");
+  $("#image-2").val("");
+  $("#image-3").val("");
+  $("#image-4").val("");
+  $("#image-5").val("");
+}
+
+function deleteLegoSet(setId) {
+  $.ajax(`{url}/${setId}`, {
+    method: "DELETE",
+  });
+}
 
 //             `
 //         )
