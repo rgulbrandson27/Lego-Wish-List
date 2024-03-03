@@ -27,10 +27,10 @@ class LegoSet {
     availability,
     link,
     notes,
+    image1,
     image2,
     image3,
-    image4,
-    image5
+    image4
   ) {
     this.setName = setName;
     this.setId = setId;
@@ -43,10 +43,10 @@ class LegoSet {
     this.availability = availability;
     this.link = link;
     this.notes = notes;
+    this.image1 = image1;
     this.image2 = image2;
     this.image3 = image3;
     this.image4 = image4;
-    this.image5 = image5;
   }
 }
 
@@ -72,7 +72,7 @@ $.get(url).then((data) => {
                         <div class="col-sm-6  align-items-center">
                             <img src="${LegoSet.coverImage}" class="img-fluid cover-image"/>
                         </div>   
-                        <div class="col-sm-6 pb-sm-4">
+                        <div class="col-sm-6 align-content-center pb-sm-4">
                           <div class="container-fluid pt-3">
                               <p class="detail price lead">Price:  $${LegoSet.price} </p>
                               <p class="detail year lead">Year: ${LegoSet.year}</p>
@@ -86,16 +86,16 @@ $.get(url).then((data) => {
                    
                       <div class="row photos container row-cols-2 row-cols-md-4">
                           <div class="col">
-                              <img id="add-image-1" src="${LegoSet.image2}" class="object-fit-contain m-1 add-image"/>
+                              <img id="add-image-1" src="${LegoSet.image1}" class="object-fit-contain m-1 add-image"/>
                           </div> 
                           <div class="col"> 
-                              <img id="add-image-2" src="${LegoSet.image3}" class="object-fit-contain m-1 add-image"/>
+                              <img id="add-image-2" src="${LegoSet.image2}" class="object-fit-contain m-1 add-image"/>
                           </div>  
                           <div class="col">   
-                              <img id="add-image-3" src="${LegoSet.image4}" class="object-fit-contain m-1 add-image" />
+                              <img id="add-image-3" src="${LegoSet.image3}" class="object-fit-contain m-1 add-image" />
                           </div> 
                           <div class="col"> 
-                              <img id="add-image-4" src="${LegoSet.image5}" class="object-fit-contain m-1 add-image" />
+                              <img id="add-image-4" src="${LegoSet.image4}" class="object-fit-contain m-1 add-image" />
                           </div> 
                       </div> 
                       <button type="button" class="btn btn-outline-success" onclick="updateLegoSet(${LegoSet.setId})"} id="update-button">Edit</button>
@@ -115,9 +115,9 @@ $(function () {
   $("#add-button").on("click", function (e) {
     e.preventDefault();
     let setNameValue = $("#setName").val();
-    let setIdValue = $("#setId").val();
+    let legoSetIdValue = $("#setId").val();
 
-    if (setNameValue === "" || setIdValue === "") {
+    if (setNameValue === "" || legoSetIdValue === "") {
       alert("Set Name and Set Id are required fields.");
       return false;
     } else {
@@ -135,7 +135,7 @@ $(function () {
         image3: $("#image-3").val(),
         image4: $("#image-4").val(),
         image5: $("#image-5").val(),
-        setId: $("#setId").val(),
+        legoSetId: $("#legoSetId").val(),
       }).done(function () {
         console.log("Form submitted successfully!");
         $("#botanical-modal").modal("hide");
@@ -146,7 +146,7 @@ $(function () {
 
 function clearFields() {
   $("#setName").val("");
-  $("#setId").val("");
+  $("#legoSetId").val("");
   $("#price").val("");
   $("#year").val("");
   $("#pieces").val("");
@@ -159,8 +159,19 @@ function clearFields() {
   $("#image-5").val("");
 }
 
+function updateLegoSet(legoSet) {
+  return $.ajax({
+    url: this.url + `/${legoSet._setId}`,
+    datatype: "json",
+    data: JSON.stringify(legoSet),
+    contentType: "application.json",
+    method: "PUT",
+  });
+}
+
 function deleteLegoSet(setId) {
-  $.ajax(`{url}/${setId}`, {
+  return $.ajax({
+    url: this.url + `/{id}`,
     method: "DELETE",
   });
 }

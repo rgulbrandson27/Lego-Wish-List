@@ -62,7 +62,7 @@
 
                 <div class="mb-3">
                     <label for="setName" class="form-label">Set Name <span class="required">*</span></label>
-                    <input type="text" class="form-control" id="setName" placeholder="Enter name of Lego set" aria-label="Name of Set">
+                    <input type="text" class="form-control fw-lighter" id="setName" placeholder="Enter name of Lego set" aria-label="Name of Set">
                 </div>
 
                 <div class="row">    
@@ -76,7 +76,7 @@
 
                     <div class="col-4 mx-auto mb-2">
                         <label for="year" class="form-label">Production Year</label>
-                        <input type="number" class="form-control" id="year" aria-label="Year">
+                        <input type="number" class="form-control fw-lighter" id="year" placeholder=2024 aria-label="Year">
                     </div>  
                 </div>
 
@@ -88,14 +88,14 @@
 
                     <div class="col-4 mx-auto mb-1">
                         <label for="availability" class="form-label">Availability</label>
-                        <select name="availability" id="availability">
-                            <option value="default">-select-</option>
-                            <option value="avl">Available</option>
-                            <option value="back">On Back Order</option>
-                            <option value="oos">Out of Stock</option>
-                            <option value="so">Sold Out</option>
-                            <option value="ret">Retired</option>
-                            <option value="cs">Coming Soon</option>
+                        <select name="availability" class="fw-lighter" id="availability">
+                            <option value="default fw-lighter">-select-</option>
+                            <option value="Available">Available</option>
+                            <option value="On Back Order">On Back Order</option>
+                            <option value="Out of Stock">Out of Stock</option>
+                            <option value="Sold Out">Sold Out</option>
+                            <option value="Retired">Retired</option>
+                            <option value="Coming Soon">Coming Soon</option>
                         </select>
                         <!-- <input type="text" class="form-control" id="availability" aria-label="Availability"> -->
                     </div>  
@@ -104,27 +104,27 @@
 
                 <div class="mb-3">
                     <label for="botanical-link" class="form-label">Link</label>
-                    <input type="text" class="form-control" id="botanical-link" placeholder="add link here">
+                    <input type="text" class="form-control fw-lighter" id="botanical-link" placeholder="add link here">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Add cover image</label>
-                    <input type="email" class="form-control" id="coverImage" placeholder="Cover image url">
+                    <input type="email" class="form-control fw-lighter" id="coverImage" placeholder="Cover image url">
                 </div>
                   <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Add up to four additional images</label>
-                    <input type="url" class="form-control mb-1" id="image-2" placeholder="Image 1 url">
-                    <input type="url" class="form-control mb-1" id="image-3" placeholder="Image 2 url">
-                    <input type="url" class="form-control mb-1" id="image-4" placeholder="Image 3 url">
-                    <input type="url" class="form-control mb-1" id="image-5" placeholder="Image 4 url">
+                    <input type="url" class="form-control mb-1 fw-lighter" id="image-1" placeholder="Image 1 url">
+                    <input type="url" class="form-control mb-1 fw-lighter" id="image-2" placeholder="Image 2 url">
+                    <input type="url" class="form-control mb-1 fw-lighter" id="image-3" placeholder="Image 3 url">
+                    <input type="url" class="form-control mb-1 fw-lighter" id="image-4" placeholder="Image 4 url">
                   </div>
                   <div>
                     <label for="setId" class="form-label">Set Id  -- (1st initial of category plus 5 digit lego id) <span class="required">*</span></label>
-                    <input type="text" class="form-control mb-1" id="setId" placeholder="Example:  a12345">
+                    <input type="text" class="form-control mb-1 fw-lighter" id="setId" placeholder="Example:  a12345">
                   </div>
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" >Cancel</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
               <button type="button" class="btn btn-primary" id="add-button">Add</button>
             </div>
 
