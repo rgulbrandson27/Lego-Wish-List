@@ -100,7 +100,7 @@ $.get(url).then((data) => {
                       </div> 
                       <button type="button" class="btn btn-outline-success" onclick="updateLegoSet(${LegoSet.setId})"} id="update-button">Edit</button>
 
-                      <button type="button" onclick="deleteLegoSet($(setId))"    class="btn btn-outline-danger" id="delete-button">Delete</button>
+                      <button type="button" onclick="deleteLegoSet('${LegoSet.setId}')" class="btn btn-outline-danger" id="delete-button">Delete</button>
 
                 </div>   
             </div>
@@ -139,6 +139,7 @@ $(function () {
       }).done(function () {
         console.log("Form submitted successfully!");
         $("#botanical-modal").modal("hide");
+        location.reload();
       });
     }
   });
@@ -159,55 +160,31 @@ function clearFields() {
   $("#image-5").val("");
 }
 
-function updateLegoSet(legoSet) {
-  return $.ajax({
-    url: this.url + `/${legoSet._setId}`,
-    datatype: "json",
-    data: JSON.stringify(legoSet),
-    contentType: "application.json",
-    method: "PUT",
-  });
-}
+// function updateLegoSet(setId) {
+//   return $.ajax({
+//     url: this.url + `/${legoSet._setId}`,
+//     datatype: "json",
+//     data: JSON.stringify(legoSet),
+//     contentType: "application.json",
+//     method: "PUT",
+//   });
+// }
 
 function deleteLegoSet(setId) {
-  return $.ajax({
-    url: this.url + `/{id}`,
+  console.log("Deleting:", setId);
+  $.ajax({
+    url: `${url}/${setId}`,
     method: "DELETE",
+  }).done(function () {
+    console.log("Lego Set has been deleted");
+    location.reload();
   });
 }
 
-//             `
-//         )
-//    })} );
-
-// Get the reference to the output container
-// const outputContainer = document.getElementById('output-container');
-
-// Iterate over each object in the array
-// data.forEach((item) => {
-// Create a div element for each object
-//   const divElement = document.createElement('div');
-
-// Set the inner HTML of the div to display the properties
-//   divElement.innerHTML = `<p>ID: ${item.id}</p><p>Name: ${item.name}</p><p>Age: ${item.age}</p>`;
-
-// Append the div to the output container
-//   outputContainer.appendChild(divElement);
-// });
-
-// console.log(LegoSet);
-
-// const paragraph = document.getElementById('test');
-// console.log({test});
-
-//         data.forEach((LegoSet) => {
-//           $(`h1`).append(
-//             $(`
-//             <p>${LegoSet.year}</p>
-//             <p>${LegoSet.setName}</p>
-
-//             `)
-//           )
-
-//     })
-// });
+// function deleteLegoSet(setId) {
+//   let setId = LegoSet.setId;
+//   return $.ajax({
+//     url: this.url + `/${setId}`,
+//     method: "DELETE",
+//   });
+// }
