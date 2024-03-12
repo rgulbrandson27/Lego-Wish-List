@@ -30,7 +30,8 @@ class LegoSet {
     image1,
     image2,
     image3,
-    image4
+    image4,
+    legoSetId
   ) {
     this.setName = setName;
     this.setId = setId;
@@ -47,6 +48,7 @@ class LegoSet {
     this.image2 = image2;
     this.image3 = image3;
     this.image4 = image4;
+    this.legoSetId = legoSetId;
   }
 }
 
@@ -58,7 +60,7 @@ $.get(url).then((data) => {
             
             <div class="accordion-item botanical-item">
                 <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse" data-bs-target="#${LegoSet.setId}" aria-expanded="false" aria-controls="${LegoSet.setId}">
+                    <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse" data-bs-target="#${LegoSet.legoSetId}" aria-expanded="false" aria-controls="${LegoSet.setId}">
                         <div class="header-row hstack gap-5 ms-3 me-2" id="botanical-header" >
                             <img src="${LegoSet.coverImage}" class="main-image object-fit-contain" style="height:100px; width:100px;"></img>
                             <h3 class="set-name">${LegoSet.setName}</h3>
@@ -66,7 +68,7 @@ $.get(url).then((data) => {
                     </button>
                 </h2>
 
-            <div id="${LegoSet.setId}" class="accordion-collapse collapse justify-content-center">
+            <div id="${LegoSet.legoSetId}" class="accordion-collapse collapse justify-content-center">
                 <div class="accordion-body">
                     <div class="row row-main">
                         <div class="col-sm-6  align-items-center">
@@ -115,7 +117,7 @@ $(function () {
   $("#add-button").on("click", function (e) {
     e.preventDefault();
     let setNameValue = $("#setName").val();
-    let legoSetIdValue = $("#setId").val();
+    let legoSetIdValue = $("#legoSetId").val();
 
     if (setNameValue === "" || legoSetIdValue === "") {
       alert("Set Name and Set Id are required fields.");
