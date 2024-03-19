@@ -142,6 +142,18 @@
 .required {
   color: red;
 }
+
+.display-current-image {
+  width: 60px;
+  height: 60px;
+}
+
+#update-botanical-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /* #notes-section {
   border-width: 2px;
   border-color: rgb(196, 171, 7);

@@ -58,7 +58,7 @@ $.get(url).then((data) => {
   data.forEach((LegoSet) => {
     $("#botanical-accordion").append(`
             
-            <div class="accordion-item botanical-item">
+      <div class="accordion-item botanical-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse" data-bs-target="#${LegoSet.legoSetId}" aria-expanded="false" aria-controls="${LegoSet.setId}">
                         <div class="header-row hstack gap-5 ms-3 me-2" id="botanical-header" >
@@ -68,45 +68,47 @@ $.get(url).then((data) => {
                     </button>
                 </h2>
 
-            <div id="${LegoSet.legoSetId}" class="accordion-collapse collapse justify-content-center">
-                <div class="accordion-body">
-                    <div class="row row-main">
-                        <div class="col-sm-6  align-items-center">
-                            <img src="${LegoSet.coverImage}" class="img-fluid cover-image"/>
-                        </div>   
-                        <div class="col-sm-6 align-content-center pb-sm-4">
-                          <div class="container-fluid pt-3">
-                              <p class="detail price lead">Price:  $${LegoSet.price} </p>
-                              <p class="detail year lead">Year: ${LegoSet.year}</p>
-                              <p class="detail pieces lead">Pieces: ${LegoSet.pieces}</p>
-                              <p class="detail availability lead">Availability: ${LegoSet.availability}</p>
-                              <p class="detail lead">Learn more at: <a class="lego-link" href=${LegoSet.link} target="_blank">LEGO.com</a></p>
-                          </div>
-                        </div>  
-                    </div>   
-                     
-                   
+                <div id="${LegoSet.legoSetId}" class="accordion-collapse collapse justify-content-center">
+
+                  <div class="accordion-body">
+                      <div class="row row-main">
+                            <div class="col-sm-6  align-items-center">
+                                <img src="${LegoSet.coverImage}" class="img-fluid cover-image"/>
+                            </div>   
+                            <div class="col-sm-6 align-content-center pb-sm-4">
+                              <div class="container-fluid pt-3">
+                                  <p class="detail price lead">Price:  $${LegoSet.price} </p>
+                                  <p class="detail year lead">Year: ${LegoSet.year}</p>
+                                  <p class="detail pieces lead">Pieces: ${LegoSet.pieces}</p>
+                                  <p class="detail availability lead">Availability: ${LegoSet.availability}</p>
+                                  <p class="detail lead">Learn more at: <a class="lego-link" href=${LegoSet.link} target="_blank">LEGO.com</a></p>
+                              </div>
+                            </div>  
+                      </div>  
+
                       <div class="row photos container row-cols-2 row-cols-md-4">
-                          <div class="col">
-                              <img id="add-image-1" src="${LegoSet.image1}" class="object-fit-contain m-1 add-image"/>
-                          </div> 
-                          <div class="col"> 
-                              <img id="add-image-2" src="${LegoSet.image2}" class="object-fit-contain m-1 add-image"/>
-                          </div>  
-                          <div class="col">   
-                              <img id="add-image-3" src="${LegoSet.image3}" class="object-fit-contain m-1 add-image" />
-                          </div> 
-                          <div class="col"> 
-                              <img id="add-image-4" src="${LegoSet.image4}" class="object-fit-contain m-1 add-image" />
-                          </div> 
+                            <div class="col">
+                                <img id="add-image-1" src="${LegoSet.image1}" class="object-fit-contain m-1 add-image"/>
+                            </div> 
+                            <div class="col"> 
+                                <img id="add-image-2" src="${LegoSet.image2}" class="object-fit-contain m-1 add-image"/>
+                            </div>  
+                            <div class="col">   
+                                <img id="add-image-3" src="${LegoSet.image3}" class="object-fit-contain m-1 add-image" />
+                            </div> 
+                            <div class="col"> 
+                                <img id="add-image-4" src="${LegoSet.image4}" class="object-fit-contain m-1 add-image" />
+                            </div> 
                       </div> 
-                      <button type="button" class="btn btn-outline-success" onclick="updateLegoSet(${LegoSet.setId})"} id="update-button">Edit</button>
 
-                      <button type="button" onclick="deleteLegoSet('${LegoSet.setId}')" class="btn btn-outline-danger" id="delete-button">Delete</button>
+                      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#update-botanical-modal" onclick="updateLegoSet(${LegoSet.legoSetId})" type="button" id="update-button">Edit</button>
 
-                </div>   
-            </div>
+                      <button type="button" onclick="deleteLegoSet('${LegoSet.legoSetId}')" class="btn btn-outline-danger" id="delete-button">Delete</button>
+
+                  </div>
+                </div>
           </div>
+
             <hr id="item-hr">  
 
           `);
@@ -162,31 +164,23 @@ function clearFields() {
   $("#image-5").val("");
 }
 
-// function updateLegoSet(setId) {
-//   return $.ajax({
-//     url: this.url + `/${legoSet._setId}`,
-//     datatype: "json",
-//     data: JSON.stringify(legoSet),
-//     contentType: "application.json",
-//     method: "PUT",
-//   });
-// }
+function updateLegoSet(legoSetId) {
+  return $.ajax({
+    url: this.url + `/${legoSet._legoSetId}`,
+    datatype: "json",
+    data: JSON.stringify(legoSet),
+    contentType: "application.json",
+    method: "PUT",
+  });
+}
 
-function deleteLegoSet(setId) {
-  console.log("Deleting:", setId);
+function deleteLegoSet(legoSetId) {
+  console.log("Deleting:", legoSetId);
   $.ajax({
-    url: `${url}/${setId}`,
+    url: `${url}/${legoSetId}`,
     method: "DELETE",
   }).done(function () {
     console.log("Lego Set has been deleted");
     location.reload();
   });
 }
-
-// function deleteLegoSet(setId) {
-//   let setId = LegoSet.setId;
-//   return $.ajax({
-//     url: this.url + `/${setId}`,
-//     method: "DELETE",
-//   });
-// }
