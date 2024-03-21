@@ -101,9 +101,9 @@ $.get(url).then((data) => {
                             </div> 
                       </div> 
 
-                      <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#update-botanical-modal" onclick="updateLegoSet(${LegoSet.legoSetId})" type="button" id="update-button">Edit</button>
+                      <button type="button" class="btn btn-outline-primary" data-bs-target="#update-botanical-modal" data-bs-toggle="modal" onclick="updateLegoSet(${LegoSet.setId})" type="button" id="update-button">Edit</button>
 
-                      <button type="button" onclick="deleteLegoSet('${LegoSet.legoSetId}')" class="btn btn-outline-danger" id="delete-button">Delete</button>
+                      <button type="button" onclick="deleteLegoSet('${LegoSet.setId}')" class="btn btn-outline-danger" id="delete-button">Delete</button>
 
                   </div>
                 </div>
@@ -122,7 +122,7 @@ $(function () {
     let legoSetIdValue = $("#legoSetId").val();
 
     if (setNameValue === "" || legoSetIdValue === "") {
-      alert("Set Name and Set Id are required fields.");
+      alert("Set Name and Lego Set Id are required fields.");
       return false;
     } else {
       $.post(url, {
@@ -164,20 +164,42 @@ function clearFields() {
   $("#image-5").val("");
 }
 
-function updateLegoSet(legoSetId) {
+function clearUpdateFields() {
+  $("#updateSetName").val("");
+  $("#updateLegoSetId").val("");
+  $("#updatePrice").val("");
+  $("#updateYear").val("");
+  $("#updatePieces").val("");
+  $("#updateAvailability").val("default");
+  $("#updateBotanical-link").val("");
+}
+
+function updateLegoSet(setId) {
+  populatePlaceholders(setId);
+
   return $.ajax({
-    url: this.url + `/${legoSet._legoSetId}`,
-    datatype: "json",
-    data: JSON.stringify(legoSet),
-    contentType: "application.json",
+    url: `${url}/${setId}`,
+    dataType: "json",
+    contentType: "application/json",
     method: "PUT",
   });
 }
 
-function deleteLegoSet(legoSetId) {
-  console.log("Deleting:", legoSetId);
+function populatePlaceholders(setId) {
+  console.log(setId);
+  fetch(url + `/${setId}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("data received:", data);
+      $("#updateSetName").attr("placeholder", data.setName);
+      $("#updatePrice").attr("placeholder", data.price);
+    });
+}
+
+function deleteLegoSet(setId) {
+  console.log("Deleting:", setId);
   $.ajax({
-    url: `${url}/${legoSetId}`,
+    url: `${url}/${setId}`,
     method: "DELETE",
   }).done(function () {
     console.log("Lego Set has been deleted");

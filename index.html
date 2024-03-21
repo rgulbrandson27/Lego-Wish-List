@@ -54,7 +54,7 @@
         <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="botanical-modal">Add to Wish List</h1>
+              <h1 class="modal-title fs-5" id="botanical-modal-header">Add to Wish List</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -62,7 +62,7 @@
 
                 <div class="mb-3">
                     <label for="setName" class="form-label">Set Name <span class="required">*</span></label>
-                    <input type="text" class="form-control fw-lighter" id="setName" placeholder="Enter name of Lego set" aria-label="Name of Set">
+                    <input type="text" class="form-control fw-lighter" id="setName" placeholder="Enter Name of Lego Set" aria-label="Name of Set">
                 </div>
 
                 <div class="row">    
@@ -124,7 +124,7 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearFields()">Cancel</button>
               <button type="button" class="btn btn-primary" id="add-button">Add</button>
             </div>
             </div>
@@ -139,8 +139,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
         <div class="modal-header">
-     
-          <h1 class="modal-title fs-5" id="update-botanical-modal">Make Lego Set Changes</h1>
+          <h1 class="modal-title fs-5" id="update-botanical-modal-header">Make Lego Set Changes</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
@@ -156,7 +155,7 @@
                     <label for="udpatePrice" class="form-label">Update Price</label>
                     <div class="input-group mb-1">
                         <span class="input-group-text">$</span>
-                        <input type="text" class="form-control" id="updatePrice" aria-label="Amount">
+                        <input type="text" class="form-control fw-lighter" id="updatePrice" aria-label="Amount">
                     </div>  
                 </div>
 
@@ -169,7 +168,7 @@
             <div class="row">    
                 <div class="col-6 mx-auto mb-1">
                     <label for="updatePieces" class="form-label">Correct # of Pieces</label>
-                    <input type="number" class="form-control" id="updatePieces" aria-label="Number of Pieces">
+                    <input type="number" class="form-control fw-lighter" id="updatePieces" aria-label="Number of Pieces">
                 </div>  
 
                 <div class="col-6 mx-auto mb-1">
@@ -215,7 +214,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Cancel</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearUpdateFields()">Cancel</button>
           <button type="button" class="btn btn-primary" id="save-changes-button">Save Changes</button>
         </div>
         </div>
