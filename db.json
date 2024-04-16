@@ -14,7 +14,7 @@
     "image3": "https://www.lego.com/cdn/cs/set/assets/blt2319884de783ee6a/10309_alt5.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
     "image4": "https://www.lego.com/cdn/cs/set/assets/bltbf8a6606fbb7291e/10309_alt4.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
     "legoSetId": "b10309",
-    "setId": "b1"
+    "setId": "1"
   },
   {
     "setName": "Dried Flower Centerpiece",
@@ -31,7 +31,7 @@
     "image3": "https://www.lego.com/cdn/cs/set/assets/blt03dc8ef18c74ee8d/10314_alt2.png?format=webply&fit=bounds&quality=60&width=1200&height=1200&dpr=2",
     "image4": "https://www.lego.com/cdn/cs/set/assets/blteefade156edc5900/10314_alt9.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
     "legoSetId": "b10314",
-    "setId": "b2"
+    "setId": "2"
   },
   {
     "setName": "Wildflower Bouquet",
@@ -48,7 +48,7 @@
     "image3": "https://www.lego.com/cdn/cs/set/assets/bltb6d0efc952eb208c/10313_alt3.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
     "image4": "https://www.lego.com/cdn/cs/set/assets/blt1244215b8b85fdde/10313_alt9.png?format=webply&fit=bounds&quality=60&width=1200&height=1200&dpr=2",
     "legoSetId": "b10313",
-    "setId": "b3"
+    "setId": "3"
   },
   {
     "setName": "Orchid",
@@ -64,8 +64,8 @@
     "image2": "https://www.lego.com/cdn/cs/set/assets/blt6214495b5cdfb27a/10311_alt2.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
     "image3": "https://www.lego.com/cdn/cs/set/assets/bltf6ac21734e2ecee2/10311_alt3.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
     "image4": "https://www.lego.com/cdn/cs/set/assets/bltffc9fcc8042b6755/10311_alt6.jpg?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
-    "legoSetId": "10311",
-    "setId": "b4"
+    "legoSetId": "b10311",
+    "setId": "4"
   },
   {
     "setName": "Bird of Paradise",
@@ -82,7 +82,7 @@
     "image3": "https://www.lego.com/cdn/cs/set/assets/blt90c308d5c9a68e5c/10289_alt5.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
     "image4": "https://www.lego.com/cdn/cs/set/assets/blt2c5dddb85af42751/10289_alt15.jpg?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
     "legoSetId": "b10289",
-    "setId": "b5"
+    "setId": "5"
   },
   {
     "setName": "Bonsai Tree",
@@ -99,6 +99,6 @@
     "image3": "https://www.lego.com/cdn/cs/set/assets/blt4af6ca0b5d5855d2/10281_alt6.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
     "image4": "https://www.lego.com/cdn/cs/set/assets/bltaa32072a5be42722/10281_alt12.jpg?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2",
     "legoSetId": "b10281",
-    "setId": "b6"
+    "setId": "6"
   }
 ]

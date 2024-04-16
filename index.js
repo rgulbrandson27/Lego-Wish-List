@@ -1,18 +1,4 @@
-/* 
-   lit-html snippet - Begin
-   Add to the top of your code. Works with html or jsx!
-   Formats html in a template literal  using the lit-html library 
-   Syntax: html`<div> html or jsx here! variable </div>`
-*/
-//lit-html snippet - Begin
-// let html = (strings, ...values) => {
-//   let str = "";
-//   strings.forEach((string, i) => {
-//     str += string + (values[i] || "");
-//   });
-//   return str;
-// };
-//lit-html snippet - End
+
 
 class LegoSet {
   constructor(
@@ -59,6 +45,7 @@ $.get(url).then((data) => {
     $("#botanical-accordion").append(`
             
       <div class="accordion-item botanical-item">
+        <input type="hidden" id="hidden-lego-set-id" value="${LegoSet.setId}">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse" data-bs-target="#${LegoSet.legoSetId}" aria-expanded="false" aria-controls="${LegoSet.setId}">
                         <div class="header-row hstack gap-5 ms-3 me-2" id="botanical-header" >
@@ -68,6 +55,7 @@ $.get(url).then((data) => {
                     </button>
                 </h2>
 
+            
                 <div id="${LegoSet.legoSetId}" class="accordion-collapse collapse justify-content-center">
 
                   <div class="accordion-body">
@@ -101,11 +89,12 @@ $.get(url).then((data) => {
                             </div> 
                       </div> 
 
-                      <button type="button" class="btn btn-outline-primary" data-bs-target="#update-botanical-modal" data-bs-toggle="modal" onclick="updateLegoSet(${LegoSet.setId})" type="button" id="update-button">Edit</button>
+                      <button type="button" class="btn btn-outline-primary" data-bs-target="#update-botanical-modal" data-bs-toggle="modal"  onclick="updateLegoSet(${LegoSet.setId})" id="update-button">Edit</button>
 
-                      <button type="button" onclick="deleteLegoSet('${LegoSet.setId}')" class="btn btn-outline-danger" id="delete-button">Delete</button>
-
-                  </div>
+                      <button type="button" class="btn btn-outline-danger" data-bs-target="#delete-botanical-modal" data-bs-toggle="modal" onclick="openDeleteModal(${LegoSet.setId}, event)" data-id="${LegoSet.setId}" data-name="George" data-dog="Asia" "id="delete-button">Delete</button>
+                   
+                     
+                  </div>    
                 </div>
           </div>
 
@@ -115,7 +104,12 @@ $.get(url).then((data) => {
   });
 });
 
+
+let setId;
+
+
 $(function () {
+
   $("#add-button").on("click", function (e) {
     e.preventDefault();
     let setNameValue = $("#setName").val();
@@ -140,8 +134,9 @@ $(function () {
         image4: $("#image-4").val(),
         image5: $("#image-5").val(),
         legoSetId: $("#legoSetId").val(),
-      }).done(function () {
-        console.log("Form submitted successfully!");
+      }).done(function (response) {
+        setId = response.setId;
+        console.log("Form submitted successfully!", setId);
         $("#botanical-modal").modal("hide");
         location.reload();
       });
@@ -149,7 +144,11 @@ $(function () {
   });
 });
 
-function clearFields() {
+// const setId = $('#hidden-lego-set-id').val();
+
+
+function clearFields(setId) {
+
   $("#setName").val("");
   $("#legoSetId").val("");
   $("#price").val("");
@@ -174,9 +173,10 @@ function clearUpdateFields() {
   $("#updateBotanical-link").val("");
 }
 
+
+
 function updateLegoSet(setId) {
   populatePlaceholders(setId);
-
   return $.ajax({
     url: `${url}/${setId}`,
     dataType: "json",
@@ -186,23 +186,57 @@ function updateLegoSet(setId) {
 }
 
 function populatePlaceholders(setId) {
-  console.log(setId);
-  fetch(url + `/${setId}`)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("data received:", data);
+
+  $.ajax({
+  url: `${url}/${setId}`,
+  dataType: "json",
+  contentType: "application/json",
+  method: "GET",
+  success: function(data) {
+    console.log("data received:", data);
       $("#updateSetName").attr("placeholder", data.setName);
       $("#updatePrice").attr("placeholder", data.price);
-    });
+      $("#updateYear").attr("placeholder", data.year);
+      $("#updateAvailability").val(data.availability);
+      $("#updatePieces").attr("placeholder", data.pieces);
+      $("#updateBotanical-link").attr("placeholder", data.link);
+      $("#current-cover-image").attr("src", data.coverImage);
+      $("#current-image-1").attr("src", data.image1);
+      $("#current-image-2").attr("src", data.image2);
+      $("#current-image-3").attr("src", data.image3);
+      $("#current-image-4").attr("src", data.image4);
+      $("#updateLegoSetId").attr("placeholder", data.legoSetId);
+    },
+    error: function(xhr, status, error) {
+      console.error("Error fetching data:", error);
+    }
+  });
 }
 
-function deleteLegoSet(setId) {
-  console.log("Deleting:", setId);
+let modalId;
+
+function openDeleteModal(setId, event) {
+  console.log(setId);
+  let deleteButton = $(event.currentTarget);
+  modalId = deleteButton.data('id');
+
+  $('#delete-modal-id').val(modalId);
+  console.log(modalId);
+}
+ 
+function logModalId() {
+    console.log("cancel:",modalId);
+}
+
+function deleteLegoSet() {
+console.log(modalId);
+let setId = modalId;
   $.ajax({
     url: `${url}/${setId}`,
     method: "DELETE",
   }).done(function () {
-    console.log("Lego Set has been deleted");
-    location.reload();
-  });
-}
+  console.log("Lego Set has been deleted", setId);
+  location.reload();
+})};
+
+
