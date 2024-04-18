@@ -1,3 +1,54 @@
+/* nav {
+  height: 80px;
+  background-color: lightblue;
+}
+
+.navbar-nav {
+  height: 80px;
+  background-color: rgb(106, 106, 183);
+} */
+
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.navbar-brand  {
+  font-weight: 600;
+  font-size: 30px;
+  margin-left: 20px;
+  margin-right: auto;
+}
+
+#yellow-lego {
+  margin-left: 200px;
+}
+
+#create-category-button {
+  width: 140px;
+  height: 30px;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 20px;
+  background-color: rgb(96, 146, 212);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  padding: 0;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+} 
+
+.lego-links {
+  margin-top: 10px;
+  width: 50%;
+}
+
 .category-heading {
   display: flex;
   justify-content: center;

@@ -89,9 +89,9 @@ $.get(url).then((data) => {
                             </div> 
                       </div> 
 
-                      <button type="button" class="btn btn-outline-primary" data-bs-target="#update-botanical-modal" data-bs-toggle="modal"  onclick="updateLegoSet(${LegoSet.setId})" id="update-button">Edit</button>
+                      <button type="button" class="btn btn-outline-primary" data-bs-target="#update-botanical-modal" data-bs-toggle="modal"  onclick="displayUpdateModal(${LegoSet.setId}, event)" data-id="${LegoSet.setId}" id="update-button">Edit</button>
 
-                      <button type="button" class="btn btn-outline-danger" data-bs-target="#delete-botanical-modal" data-bs-toggle="modal" onclick="openDeleteModal(${LegoSet.setId}, event)" data-id="${LegoSet.setId}" data-name="George" data-dog="Asia" "id="delete-button">Delete</button>
+                      <button type="button" class="btn btn-outline-danger" data-bs-target="#delete-botanical-modal" data-bs-toggle="modal" onclick="openDeleteModal(${LegoSet.setId}, event)" data-id="${LegoSet.setId}" "id="delete-button">Delete</button>
                    
                      
                   </div>    
@@ -106,7 +106,6 @@ $.get(url).then((data) => {
 
 
 let setId;
-
 
 $(function () {
 
@@ -144,11 +143,8 @@ $(function () {
   });
 });
 
-// const setId = $('#hidden-lego-set-id').val();
 
-
-function clearFields(setId) {
-
+function clearFields() {
   $("#setName").val("");
   $("#legoSetId").val("");
   $("#price").val("");
@@ -174,19 +170,40 @@ function clearUpdateFields() {
 }
 
 
+function confirmUpdates() {
+  const updatedData = {};
+  const inputFields = [updateSetName, updatePrice, updateYear, updateAvailability, updatePieces, updateBotanical-link, updateCoverImage, updateImage-1, updateImage-2, updateImage-3, updateImage-4, updateLegoSetId];
 
-function updateLegoSet(setId) {
-  populatePlaceholders(setId);
+  inputFields.forEach(fieldId => {
+    const $field = $(`#${fieldId}`);
+    if ($field.val() !== $field.attr("placeholder")) {
+      updatedData[fieldId] = $field.val();
+    }
+  });
+
   return $.ajax({
     url: `${url}/${setId}`,
     dataType: "json",
     contentType: "application/json",
     method: "PUT",
+    data: JSON.stringify(updatedData)
   });
 }
 
-function populatePlaceholders(setId) {
 
+let updateModalId;
+
+function displayUpdateModal(setId, event) {
+  populatePlaceholders(setId);
+  let updateButton = $(event.currentTarget);
+    updateModalId = updateButton.data('id');
+    console.log(updateModalId);
+    // $('#update-modal-id').val(updateModalId);
+    // console.log(updateModalId);
+  }
+
+
+function populatePlaceholders(setId) {
   $.ajax({
   url: `${url}/${setId}`,
   dataType: "json",
@@ -198,6 +215,8 @@ function populatePlaceholders(setId) {
       $("#updatePrice").attr("placeholder", data.price);
       $("#updateYear").attr("placeholder", data.year);
       $("#updateAvailability").val(data.availability);
+              // WILL NOT POPULATE - SELECT ELEMENTS CANNOT HAVE PLACEHOLDERS SO NEED TO CREATE A WORK-AROUND
+              //$("#updateAvailability option[value='" + data.availability + "']").attr("selected", true);
       $("#updatePieces").attr("placeholder", data.pieces);
       $("#updateBotanical-link").attr("placeholder", data.link);
       $("#current-cover-image").attr("src", data.coverImage);
@@ -215,17 +234,16 @@ function populatePlaceholders(setId) {
 
 let modalId;
 
-function openDeleteModal(setId, event) {
+function openDeleteModal(setId, e) {
   console.log(setId);
-  let deleteButton = $(event.currentTarget);
+  let deleteButton = $(e.currentTarget);
   modalId = deleteButton.data('id');
-
   $('#delete-modal-id').val(modalId);
   console.log(modalId);
 }
  
 function logModalId() {
-    console.log("cancel:",modalId);
+    console.log("cancel:", modalId);
 }
 
 function deleteLegoSet() {
@@ -235,8 +253,9 @@ let setId = modalId;
     url: `${url}/${setId}`,
     method: "DELETE",
   }).done(function () {
+    location.reload();
+  })
   console.log("Lego Set has been deleted", setId);
-  location.reload();
-})};
+};
 
 
