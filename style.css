@@ -1,59 +1,177 @@
-/* nav {
-  height: 80px;
-  background-color: lightblue;
-}
-
-.navbar-nav {
-  height: 80px;
-  background-color: rgb(106, 106, 183);
-} */
-
 
 .navbar {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 0;
+  margin-bottom: 0px;
+  text-decoration-color: blue;
+  background-color: rgb(239, 239, 239);
+  /* justify-content: center;
+  justify-items: center; */
+  /* justify-content: space-between;
+  padding-left: 30px; */
+  /* background-color:  rgb(168, 183, 229); */
+  /* box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(246, 221, 77, 0.695); */
 }
 
-.navbar-brand  {
+.nav-item.dropdown .nav-link {
+  color: blue;
+}
+
+.nav-item {
+  display: inline-block;
+}
+
+.categories-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.navbar-toggler {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 6px;
+}
+
+#categories {
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+/* .nav-row {
+  background-color: rgb(126, 147, 210);
+  margin-bottom: 0; */
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center; */
+
+
+.title  {
+  flex-grow: 1;
+  text-align: center;
   font-weight: 600;
-  font-size: 30px;
-  margin-left: 20px;
-  margin-right: auto;
+  font-size: 40px;
+  padding: 5px;
+  margin:0;
+  color: rgb(80, 80, 87);
+  /* background: radial-gradient(#bd6a6a, #db9696, white, white); */
 }
+ 
+  /* margin-left: 20px;
+  margin-right: auto; */
+
+
+/* #space {
+  width: 350px;
+} */
 
 #yellow-lego {
-  margin-left: 200px;
+  width: 36px;
+  height: 36px;
+}
+
+#blue-lego {
+  width: 36px;
+  height: 36px;
 }
 
 #create-category-button {
-  width: 140px;
+  width: 100px;
   height: 30px;
   font-size: 12px;
   margin-top: 5px;
   margin-left: 10px;
-  margin-right: 20px;
-  background-color: rgb(96, 146, 212);
+  margin-right: 10px;
+  background-color:  white;
+  border-color: blue;
+  color: blue;
+  border-width: 2px;
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
   justify-items: center;
   padding: 0;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,0.19);
 } 
 
+
 .lego-links {
-  margin-top: 10px;
-  width: 50%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px;
+  width: 100 vw;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  background-color:white;
+  box-shadow: 0 3px 3px 0 rgb(71, 71, 182), 0 6px 6px 0 red, 0 9px 9px 0 rgb(168, 229, 120), 0 12px 12px 0 rgba(246, 221, 77, 0.695);
 }
+
+.nav-link-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 1;
+  padding-bottom: 5px;
+}
+
+.nav-lego-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  white-space: nowrap;
+  flex-shrink: 2;
+  margin-bottom: 5;
+}
+
+col {
+  display: flex;
+  flex-direction: column;
+}
+
+#lego-links-row {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(239, 239, 239);
+  font-size: 18px;
+
+}
+
+body {
+  background-color: rgb(239, 239, 239);
+
+}
+
+#lego-site {color: red}
+#brickset {color: rgb(235, 135, 27)}
+#rebrickable {color: green}
 
 .category-heading {
   display: flex;
   justify-content: center;
   margin: 0;
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 40px;
 }
 
@@ -72,8 +190,28 @@
   border-color: rgb(54, 125, 10);
 }
 
+#add-button-disney {
+  color: rgb(134, 74, 186);
+  border-color: rgb(134, 74, 186);
+}
+
+#add-button-hp {
+  color: rgb(223, 207, 58);
+  border-color:rgb(223, 207, 58);
+}
+
 #add-button-botanical:hover {
   background-color: rgb(54, 125, 10);
+  color: white;
+}
+
+#add-button-disney:hover {
+  background-color: rgb(134, 74, 186);
+  color: white;
+}
+
+#add-button-hp:hover {
+  background-color: rgb(223, 207, 58);
   color: white;
 }
 
@@ -93,8 +231,24 @@
   color: rgb(54, 125, 10);
 }
 
+#disney-heading {
+  color: rgb(134, 74, 186);
+}
+
+#hp-heading {
+  color: rgb(223, 207, 58);
+}
+
 .botanical {
   color: rgb(54, 125, 10);
+}
+
+.disney {
+  color: rgb(134, 74, 186);
+}
+
+.hp {
+  color: rgb(223, 207, 58);
 }
 
 .modal-body {
@@ -168,6 +322,12 @@
 
 .photos {
   margin-top: 20px;
+  justify-content: center;
+  justify-self: center;
+  justify-content: center;
+  align-self: center;
+  align-content: center;
+  align-items: center;
 }
 
 #delete-button {
@@ -255,3 +415,23 @@
   height: 36px;
   width: 142px;
 }
+
+.scrollable-input {
+  overflow-x: auto;
+}
+
+.scrollable-placeholder {
+  overflow-x: auto;
+}
+
+.scrollable-placeholder::placeholder {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.scrollable-placeholder::-webkit-input-placeholder {
+  /* WebKit browsers */
+  overflow-x: auto;
+  white-space: nowrap; /* Prevents wrapping of placeholder text */
+}
+
