@@ -81,7 +81,7 @@ $.get(url).then((data) => {
                             </div>  
                       </div>  
 
-                      <div class="row photos container row-cols-2 row-cols-md-4 px-auto">
+                      <div class="row photos container row-cols-2 row-cols-md-4" id="photo-container">
                             <div class="col">
                                 <img id="add-image-1 scrollable-input" src="${LegoSet.image1}" class="object-fit-contain m-1 add-image"/>
                             </div> 
@@ -96,11 +96,13 @@ $.get(url).then((data) => {
                             </div> 
                       </div> 
 
-                      <button type="button" class="btn btn-outline-primary" data-bs-target="#update-botanical-modal" data-bs-toggle="modal"  onclick="displayUpdateModal(${LegoSet.setId}, event)" data-id="${LegoSet.setId}" id="update-button">Edit</button>
+                      <div id="button-box">
 
-                      <button type="button" class="btn btn-outline-danger" data-bs-target="#delete-botanical-modal" data-bs-toggle="modal" onclick="openDeleteModal(${LegoSet.setId}, event)" data-id="${LegoSet.setId}" id="delete-button">Delete</button>
+                          <button type="button" class="btn btn-outline-primary" data-bs-target="#update-botanical-modal" data-bs-toggle="modal"  onclick="displayUpdateModal(${LegoSet.setId}, event)" data-id="${LegoSet.setId}" id="update-button">Edit</button>
+
+                          <button type="button" class="btn btn-outline-danger" data-bs-target="#delete-botanical-modal" data-bs-toggle="modal" onclick="openDeleteModal(${LegoSet.setId}, event)" data-id="${LegoSet.setId}" id="delete-button">Delete</button>
                    
-                     
+                     </div>
                   </div>    
                 </div>
           </div>

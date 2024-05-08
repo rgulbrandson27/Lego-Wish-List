@@ -321,6 +321,7 @@ body {
 }
 
 .photos {
+  display: flex;
   margin-top: 20px;
   justify-content: center;
   justify-self: center;
@@ -334,7 +335,7 @@ body {
   height: 24px;
   width: 60px;
   margin-left: -10px;
-  margin-bottom: -10px;
+  margin-bottom: -5px;
   font-size: small;
   text-align: center;
   text-justify: center;
@@ -345,9 +346,9 @@ body {
 #update-button {
   height: 24px;
   width: 60px;
-  margin-left: -10px;
+  margin-right: -10px;
   margin-right: 16px;
-  margin-bottom: -10px;
+  margin-bottom: -5px;
   font-size: small;
   text-align: center;
   text-justify: center;
@@ -435,3 +436,13 @@ body {
   white-space: nowrap; /* Prevents wrapping of placeholder text */
 }
 
+#button-box {
+  display: flex;
+  justify-content: end;
+}
+
+/* #photo-container {
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+} */
