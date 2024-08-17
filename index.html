@@ -91,9 +91,9 @@
                 </div>
             </div>
             <div class="col col-10 col-lg-4 nav-link-group">
-                <a class="lego-site-link col-auto px-2" id="lego-site" href="https://www.lego.com">Lego Official Website</a> 
-                <a class="lego-site-link col-auto px-2" id="brickset" href="https://www.brickset.com">Brickset</a> 
-                <a class="lego-site-link col-auto px-2" id="rebrickable" href="https://www.rebrickable.com">Rebrickable</a>
+                <a class="lego-site-link col-auto px-2" id="lego-site" target="_blank" href="https://www.lego.com">Lego Official Website</a> 
+                <a class="lego-site-link col-auto px-2" id="brickset" target="_blank" href="https://www.brickset.com">Brickset</a> 
+                <a class="lego-site-link col-auto px-2" id="rebrickable" target="_blank" href="https://www.rebrickable.com">Rebrickable</a>
             </div>
             <div class="col d-none d-lg-block col-md-auto nav-lego-group pb-1">
                 <div class="lego-row">
@@ -197,7 +197,7 @@
                     <div class="col-4 mx-auto mb-1">
                         <label for="availability" class="form-label">Availability</label>
                         <select name="availability" class="fw-lighter" id="availability">
-                            <option value="default fw-lighter">-select-</option>
+                            <option value=""></option>
                             <option value="Available">Available</option>
                             <option value="On Back Order">On Back Order</option>
                             <option value="Out of Stock">Out of Stock</option>
@@ -242,8 +242,8 @@
             
 <!-- FORM/MODAL FOR UPDATE -->
 
-
-<div class="modal fade" id="update-botanical-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="update-botanical-modal" aria-hidden="true">
+<!-- TOOK OUT "UPDATE" from variable names -->
+<!-- <div class="modal fade" id="update-botanical-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="update-botanical-modal" aria-hidden="true">
     <input type="hidden" id="update-modal-id" value=""/>
 
     <input type="hidden" id="update-modal-id" value=""/>     
@@ -256,30 +256,30 @@
 
         <div class="modal-body container-fluid">
             <div class="mb-3">
-                <label for="updateSetName" class="form-label">Update Set Name <span class="required">*</span></label>
-                <input type="text" class="form-control fw-lighter" id="updateSetName" placeholder="Enter name of Lego set" aria-label="Name of Set">
+                <label for="setName" class="form-label">Update Set Name <span class="required">*</span></label>
+                <input type="text" class="form-control fw-lighter" id="setName" placeholder="Enter name of Lego set" aria-label="Name of Set">
             </div>
             <div class="row">    
                 <div class="col-6 mx-auto mb-1">
-                    <label for="udpatePrice" class="form-label">Update Price</label>
+                    <label for="price" class="form-label">Update Price</label>
                     <div class="input-group mb-1">
                         <span class="input-group-text">$</span>
-                        <input type="text" class="form-control fw-lighter" id="updatePrice" aria-label="Amount">
+                        <input type="text" class="form-control fw-lighter" id="price" aria-label="Amount">
                     </div>  
                 </div>
                 <div class="col-6 mx-auto mb-2">
-                    <label for="updateYear" class="form-label">Correct Production Year</label>
-                    <input type="number" class="form-control fw-lighter" id="updateYear" placeholder=2024 aria-label="Year">
+                    <label for="year" class="form-label">Correct Production Year</label>
+                    <input type="number" class="form-control fw-lighter" id="year" placeholder=2024 aria-label="Year">
                 </div>  
             </div>
             <div class="row">    
                 <div class="col-6 mx-auto mb-1">
-                    <label for="updatePieces" class="form-label">Correct # of Pieces</label>
-                    <input type="number" class="form-control fw-lighter" id="updatePieces" aria-label="Number of Pieces">
+                    <label for="pieces" class="form-label">Correct # of Pieces</label>
+                    <input type="number" class="form-control fw-lighter" id="pieces" aria-label="Number of Pieces">
                 </div>  
                 <div class="col-6 mx-auto mb-1">
-                    <label for="updateAvailability" class="form-label">Update Availability</label>
-                    <select name="updateAvailability" class="fw-lighter availability-dropdown" id="updateAvailability">
+                    <label for="availability" class="form-label">Update Availability</label>
+                    <select name="updateAvailability" class="fw-lighter availability-dropdown" id="availability">
                         <option value="default fw-lighter">-select-</option>
                         <option value="Available">Available</option>
                         <option value="On Back Order">On Back Order</option>
@@ -292,14 +292,14 @@
             </div>
             <div class="mb-3 mt-1">
                 <label for="new-legoLink" class="form-label">Update Link</label>
-                <input type="text" class="form-control fw-lighter scrollable-placeholder scrollable-input" id="updateLegoLink" placeholder="add new link">
+                <input type="text" class="form-control fw-lighter scrollable-placeholder scrollable-input" id="legoLink" placeholder="add new link">
             </div>
             <div class="row">
                 <label for="new-coverImage" class="form-label lower-label">Change Cover Image</label>
             </div>
             <div class="row"> 
                 <div class="col-8">
-                    <input type="url" class="form-control fw-lighter mt-3 scrollable-placeholder scrollable-input" id="updateCoverImage" placeholder="New url - Cover Image">
+                    <input type="url" class="form-control fw-lighter mt-3 scrollable-placeholder scrollable-input" id="coverImage" placeholder="New url - Cover Image">
                 </div>
                 <div class="col-3">
                     <image class="display-current-cover-image ms-3" id="current-cover-image"></image>
@@ -310,7 +310,7 @@
             </div>
             <div class="row mb-3">
                 <div class="col-8">
-                    <input type="url" class="form-control fw-lighter mt-3 scrollable-input scrollable-placeholder" id="updateImageOne" placeholder="New url - Image 1">
+                    <input type="url" class="form-control fw-lighter mt-3 scrollable-input scrollable-placeholder" id="imageOne" placeholder="New url - Image 1">
                 </div>
                 <div class="col-3">
                     <image class="display-current-image ms-4" id="current-image-1"></image>
@@ -318,7 +318,7 @@
             </div>
             <div class="row mb-3">
                 <div class="col-8">
-                    <input type="url" class="form-control fw-lighter mt-3 scrollable-placeholder scrollable-input" id="updateImageTwo" placeholder="New url - Image 2">
+                    <input type="url" class="form-control fw-lighter mt-3 scrollable-placeholder scrollable-input" id="imageTwo" placeholder="New url - Image 2">
                 </div>
                 <div class="col-3">  
                     <image class="display-current-image ms-4" id="current-image-2"></image>
@@ -326,7 +326,7 @@
             </div>
             <div class="row mb-3">
                 <div class="col-8">
-                    <input type="url" class="form-control fw-lighter mt-3 scrollable-placeholder scrollable-input" id="updateImageThree" placeholder="New url - Image 3">
+                    <input type="url" class="form-control fw-lighter mt-3 scrollable-placeholder scrollable-input" id="ihree" placeholder="New url - Image 3">
                 </div> 
                 <div class="col-3">
                     <image class="display-current-image ms-4" id="current-image-3"></image>
@@ -334,7 +334,118 @@
             </div> 
             <div class="row mb-3">
                 <div class="col-8">
-                    <input type="text" class="form-control fw-lighter mt-3 scrollable-input scrollable-placeholder" id="updateImageFour" placeholder="New url - Image 4">
+                    <input type="text" class="form-control fw-lighter mt-3 scrollable-input scrollable-placeholder" id="imageFour" placeholder="New url - Image 4">
+                </div> 
+                <div class="col-3">
+                    <image class="display-current-image ms-4" id="current-image-4"></image>
+                </div>
+            </div> 
+            <div>
+                <label for="legoSetId" class="form-label">Correct Lego Set Id - (1st initial of category plus 5 digit id) <span class="required">*</span></label>
+                <input type="text" class="form-control mb-1 fw-lighter scrollable-placeholder scrollable-input" id="legoSetId" placeholder="">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearUpdateFields()">Cancel</button>
+          <button type="button" class="btn btn-primary" id="save-changes-button" onclick="confirmUpdates()">Save Changes</button>
+        </div>
+
+        </div>  
+    </div>
+</div> -->
+
+
+
+<div class="modal fade" id="update-botanical-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="update-botanical-modal" aria-hidden="true">
+    <input type="hidden" id="update-modal-id" value=""/>   
+    <div class="modal-dialog modal-dialog-scrollable" id="update-modal-width">
+    <div class="modal-content">
+
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="update-botanical-modal-header">Make Lego Set Changes</h1>
+        </div>
+
+        <div class="modal-body container-fluid">
+            <div class="mb-3">
+                <label for="updateSetName" class="form-label">Update Set Name <span class="required">*</span></label>
+                <input type="text" class="form-control fw-lighter update-field" id="updateSetName" placeholder="Enter name of Lego set" aria-label="Name of Set">
+            </div>
+            <div class="row">    
+                <div class="col-6 mx-auto mb-1">
+                    <label for="udpatePrice" class="form-label">Update Price</label>
+                    <div class="input-group mb-1">
+                        <span class="input-group-text">$</span>
+                        <input type="text" class="form-control fw-lighter update-field" id="updatePrice" aria-label="Amount">
+                    </div>  
+                </div>
+                <div class="col-6 mx-auto mb-2">
+                    <label for="updateYear" class="form-label">Correct Production Year</label>
+                    <input type="number" class="form-control fw-lighter update-field" id="updateYear" placeholder=2024 aria-label="Year">
+                </div>  
+            </div>
+            <div class="row">    
+                <div class="col-6 mx-auto mb-1">
+                    <label for="updatePieces" class="form-label">Correct # of Pieces</label>
+                    <input type="number" class="form-control fw-lighter update-field" id="updatePieces" aria-label="Number of Pieces">
+                </div>  
+                <div class="col-6 mx-auto mb-1">
+                    <label for="updateAvailability" class="form-label">Update Availability</label>
+                    <select name="updateAvailability" class="fw-lighter update-field availability-dropdown" id="updateAvailability">
+                        <option value="none selected">-select-</option>
+                        <option value="Available">Available</option>
+                        <option value="On Back Order">On Back Order</option>
+                        <option value="Out of Stock">Out of Stock</option>
+                        <option value="Sold Out">Sold Out</option>
+                        <option value="Retired">Retired</option>
+                        <option value="Coming Soon">Coming Soon</option>
+                    </select>
+                </div>  
+            </div>
+            <div class="mb-3 mt-1">
+                <label for="new-legoLink" class="form-label">Update Link</label>
+                <input type="text" class="update-field form-control fw-lighter scrollable-placeholder scrollable-input" id="updateLegoLink" placeholder="add new link">
+            </div>
+            <div class="row">
+                <label for="new-coverImage" class="form-label lower-label">Change Cover Image</label>
+            </div>
+            <div class="row"> 
+                <div class="col-8">
+                    <input type="url" class="update-field form-control fw-lighter mt-3 scrollable-placeholder scrollable-input" id="updateCoverImage" placeholder="New url - Cover Image">
+                </div>
+                <div class="col-3">
+                    <image class="display-current-cover-image ms-3" id="current-cover-image"></image>
+                </div>
+            </div>
+            <div class="row">
+                <label for="new-additionalImages" class="form-label lower-label">Change Additional Images</label>
+            </div>
+            <div class="row mb-3">
+                <div class="col-8">
+                    <input type="url" class="form-control update-field fw-lighter mt-3 scrollable-input scrollable-placeholder" id="updateImageOne" placeholder="New url - Image 1">
+                </div>
+                <div class="col-3">
+                    <image class="display-current-image ms-4" id="current-image-1"></image>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-8">
+                    <input type="url" class="update-field form-control fw-lighter mt-3 scrollable-placeholder scrollable-input" id="updateImageTwo" placeholder="New url - Image 2">
+                </div>
+                <div class="col-3">  
+                    <image class="display-current-image ms-4" id="current-image-2"></image>
+                </div> 
+            </div>
+            <div class="row mb-3">
+                <div class="col-8">
+                    <input type="url" class="update-field form-control fw-lighter mt-3 scrollable-placeholder scrollable-input" id="updateImageThree" placeholder="New url - Image 3">
+                </div> 
+                <div class="col-3">
+                    <image class="display-current-image ms-4" id="current-image-3"></image>
+                </div>
+            </div> 
+            <div class="row mb-3">
+                <div class="col-8">
+                    <input type="text" class="update-field form-control fw-lighter mt-3 scrollable-input scrollable-placeholder" id="updateImageFour" placeholder="New url - Image 4">
                 </div> 
                 <div class="col-3">
                     <image class="display-current-image ms-4" id="current-image-4"></image>
@@ -342,12 +453,13 @@
             </div> 
             <div>
                 <label for="updateLegoSetId" class="form-label">Correct Lego Set Id - (1st initial of category plus 5 digit id) <span class="required">*</span></label>
-                <input type="text" class="form-control mb-1 fw-lighter scrollable-placeholder scrollable-input" id="updateLegoSetId" placeholder="">
+                <input type="text" class="update-field form-control mb-1 fw-lighter scrollable-placeholder scrollable-input" id="updateLegoSetId" placeholder="">
             </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearUpdateFields()">Cancel</button>
-          <button type="button" class="btn btn-primary" id="save-changes-button" onclick="confirmUpdates()">Save Changes</button>
+          <button type="button"id="resetButton"class="btn btn-secondary">Reset to Original</button>
+          <button type="button" class="btn btn-primary" id="save-changes-button" onclick="applyUpdates()">Save Changes</button>
         </div>
 
         </div>  
@@ -372,7 +484,7 @@
            
             </div>
             <div class="row col-5">
-                <button type="button" onclick="updateLegoSet()" class="btn btn-outline-primary m-2 btn-sm" data-bs-target="#update-botanical-modal" data-bs-toggle="modal">Edit Instead</button>
+                <button type="button" onclick="applyUpdates()" class="btn btn-outline-primary m-2 btn-sm" data-bs-target="#update-botanical-modal" data-bs-toggle="modal">Edit Instead</button>
             </div>
             <div class="row col-6">
                 <button type="button" id="finalDelete" onclick="deleteLegoSet()" class="btn btn-outline-danger m-2 btn-sm" data-bs-dismiss="modal">Yes - I want to delete!</button>
