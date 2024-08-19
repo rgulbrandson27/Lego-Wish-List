@@ -282,13 +282,12 @@
     <!-----update modal footer----->
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearUpdateFields()">Cancel</button>
-          <button type="button" id="resetButton" class="btn btn-secondary">Reset to Original</button>
+          <button type="button" id="resetButton" class="btn btn-secondary" onclick="resetUpdateFields()">Reset to Original</button>
           <button type="button" class="btn btn-primary" id="saveChangesButton" onclick="applyUpdates()">Save Changes</button>
         </div>
         </div>  
     </div>
 </div>
-
 
 <!-----DELETE MODAL----->
 <div class="modal fade" id="delete-botanical-modal" data-bs-backdrop="static" aria-labelledby="delete-botanical-modal" aria-hidden="true" data-bs-target="#delete-botanical-modal">
@@ -303,7 +302,7 @@
                 <button type="button" id="finalCancel" onclick="logModalId()" class="btn btn-outline-secondary m-2 ms-2 btn-sm" data-bs-dismiss="modal" >Cancel</button>
             </div>
             <div class="row col-5">
-                <button type="button" onclick="displayUpdateModal()" class="btn btn-outline-primary m-2 btn-sm" data-bs-target="#update-botanical-modal" data-bs-toggle="modal">Edit Instead</button>
+                <button type="button" onclick="openUpdateModal()" class="btn btn-outline-primary m-2 btn-sm" data-bs-target="#update-botanical-modal" data-bs-toggle="modal">Edit Instead</button>
             </div>
             <div class="row col-6">
                 <button type="button" id="finalDelete" onclick="deleteLegoSet()" class="btn btn-outline-danger m-2 btn-sm" data-bs-dismiss="modal">Yes - I want to delete!</button>

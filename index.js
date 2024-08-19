@@ -94,9 +94,6 @@ $.get(url).then((data) => {
   });
 });
 
-
-
-
 // POST
 let id;
 $(function () {
@@ -128,7 +125,6 @@ $(function () {
         $("#botanical-modal").modal("hide");
         location.reload();
         console.log("Form submitted successfully!", id);
-
       });
     }
   });
@@ -164,7 +160,6 @@ function clearUpdateFields() {
   $("#updateImageFour").val("");
 }
 
-
 let updateModalId;
 let currentData = {};
 let newData = {};
@@ -184,6 +179,30 @@ let updatedData = {};
     }
   };
 
+function resetUpdateFields() {
+  if (currentData) {
+    $("#updateSetName").val(currentData.setName || '');
+    $("#updatePrice").val(currentData.price || '');
+    $("#updateYear").val(currentData.year || '');
+    $("#updateAvailability").val(currentData.availability || '');
+    $("#updatePieces").val(currentData.pieces || '');
+    $("#updateLegoLink").val(currentData.link || '');
+    $("#updateCoverImage").val(currentData.coverImage || '');
+    $("#current-cover-image").attr("src", currentData.coverImage || '');
+    $("#updateImageOne").val(currentData.image1 || '');
+    $("#current-image-1").attr("src", currentData.image1 || '');
+    $("#updateImageTwo").val(currentData.image2 || '');
+    $("#current-image-2").attr("src", currentData.image2 || '');
+    $("#updateImageThree").val(currentData.image3 || '');
+    $("#current-image-3").attr("src", currentData.image3 || '');
+    $("#updateImageFour").val(currentData.image4 || '');
+    $("#current-image-4").attr("src", currentData.image4 || '');
+    $("#updateLegoSetId").val(currentData.legoSetId || '');
+  } else {
+    console.error("No data to reset");
+  }
+}
+
 function populateCurrentData(id) {
   return new Promise((resolve, reject) => {
   $.ajax({
@@ -196,8 +215,6 @@ function populateCurrentData(id) {
           console.error("Error: No data received from the server.");
           return reject(new Error("No data received"));
         }
-
-    
       $("#updateSetName").val(data.setName || '');
       $("#updatePrice").val(data.price || '');
       $("#updateYear").val(data.year || '');
@@ -215,9 +232,7 @@ function populateCurrentData(id) {
       $("#updateImageFour").val(data.image4 || '');
       $("#current-image-4").attr("src", data.image4 || '');
       $("#updateLegoSetId").val(data.legoSetId || '');
-
-        currentData = data;
-
+      currentData = data;
       resolve(data);
       }, 
       error: function(error) {
@@ -227,8 +242,6 @@ function populateCurrentData(id) {
     });
   })
 };
-
-
 
 function collectNewUserData() {
   newData = 
@@ -253,171 +266,18 @@ function collectNewUserData() {
 
 function extractUpdatedData() {
   updatedData = {};
-
     console.log("c", currentData)
     console.log("n", newData);
-  // Compare properties of currentData and newData
-  // function normalize(value) {
-  //   if (value === undefined || value === null) return '';
-  //   return value.toString().trim();
-  // }
-
-
   Object.keys(newData).forEach(key => {
     if (currentData[key] !== newData[key]) {
       updatedData[key] = newData[key];
     }
   });
-
   console.log("Updated Data:", updatedData);
-
 }
 
-//   collectNewUserData();
-//   console.log(newData);
-// }
-// async function extractUpdatedData() {
-//   try {
-//     if (!updateModalId) 
-//       throw new Error("UpdateModalId is not set");
-    
-//     if (!currentData) {
-//       console.warn("currentData is not defined or populated.");
-//       currentData = await populateCurrentData(updateModalId);
-//     }
-//     newData = collectNewUserData();
-    
-// function printData() {
-//     console.log("c", currentData)
-//     console.log("n", newData);
-// }
-    
-// async function applyUpdates() {
-//   // Ensure currentData is populated before proceeding
-//   if (!currentData) {
-//     console.warn("currentData is not populated yet. Calling openUpdateModal.");
-//     await openUpdateModal(updateModalId); // Ensure modal is opened and data is populated
-//   }
-//   collectNewUserData();
-//   printData();
-// }
-
-
-// function applyUpdates() {
-//   printData();
-// }
-
-    // const keys = Object.keys(currentData);
-
-    // Object.keys(currentData).forEach(key => {
-    // if (currentData[key] !== newData[key]) {
-    //   updatedData[key] = newData[key];
-    // }
-    // });
-
-    // console.log("UpdatedData:", updatedData);
-    // return updatedData;
-//   } catch (error) {
-//     console.error("Error extracting updated data:", error);
-//     throw error;
-//   }
-// }
-
-//     $("#updateSetName").val(data.setName);
-//     $("#updatePrice").val(data.price);
-//     $("#updateYear").val(data.year);
-//     $("#updateAvailability").val(data.availability);
-//     $("#updatePieces").val(data.pieces);
-//     $("#updateLegoLink").val(data.link);
-//     $("#updateCoverImage").val(data.coverImage);
-//     $("#current-cover-image").attr("src", data.coverImage);
-//     $("#updateImageOne").val(data.image1);
-//     $("#current-image-1").attr("src", data.image1);
-//     $("#updateImageTwo").val(data.image2);
-//     $("#current-image-2").attr("src", data.image2);
-//     $("#updateImageThree").val(data.image3);
-//     $("#current-image-3").attr("src", data.image3);
-//     $("#updateImageFour").val(data.image4);
-//     $("#current-image-4").attr("src", data.image4);
-//     $("#updateLegoSetId").val(data.legoSetId);
-
-//       resolve();
-//     },
-//           error: function(xhr, status, error) {
-//           console.error("Error fetching data:", error);
-//           reject(error);
-//           }
-//       });
-//   });
-// }
-
-//     try {
-//       await populatePlaceholders(updateModalId);
-//       console.log("Form Field IDs:", $('.update-field').map(function() { return $(this).attr('id'); }).get());
-//       $('.update-field').each(function() {
-//         const field = $(this);
-//         const fieldId = field.attr('id');
-//         const key = fieldId.replace('update', ''); // Convert "updateFieldName" to "FieldName"
-//         const keyWithFirstLetterLowercase = key.charAt(0).toLowerCase() + key.slice(1); // Convert first letter to lowercase
-//         const newValue = field.val();
-//         const originalValue = originalData[keyWithFirstLetterLowercase];
-      // $('.update-field').each(function() {
-      //     const field = $(this);
-      //     const fieldId = field.attr('id');
-
-      //     const key = field.attr('id').replace('update', ''); 
-      //     const keyWithFirstLetterLowercase = key.charAt(0).toLowerCase() + key.slice(1); // Converts only the first letter to lowercase
-      //     const newValue = field.val();
-      //     const originalValue = originalData[keyWithFirstLetterLowercase];
-
-      // console.log('Field ID:', fieldId);
-      // console.log('Key With First Letter Lowercase:', keyWithFirstLetterLowercase);
-      // console.log('New Value:', newValue);
-      // console.log('Original Value:', originalValue);
-
-    
-  //         const formattedNewValue = newValue === null ? '' : newValue.toString().trim();
-  //         const formattedOriginalValue = (originalValue === null || originalValue === undefined) ? '' : originalValue.toString().trim();
-          
-  //         if (formattedNewValue !== formattedOriginalValue) {
-  //           updatedData[keyWithFirstLetterLowercase] = newValue;
-  //         }
-  //       });
-  //       console.log("Final updated data:", updatedData); // Log final updated data for debugging
-
-  //     return updatedData;
-
-  
-//    $.ajax({
-//       url: `${url}/${updateModalId}`,
-//       method: "PATCH",
-//       contentType: "application/json",
-//       dataType: "json",
-//       data: JSON.stringify(updatedData),
-//       success: function(response) {
-//           console.log("Successfully Updated", response);
-//           // $('#update-botanical-modal').modal('hide');
-//           //   location.reload(); 
-//       },
-//       error: function(xhr, status, error) {
-//           console.error("Error Updating", error);
-
-//   try {
-//   await populateCurrentData(id);
-//   // let updateButton = $(e.currentTarget);
-//     updateModalId = id;
-//     // $('#update-modal-id').val(updateModalId);
-//     console.log(updateModalId);
-//     console.log("CurrentData", currentData);
-//   } catch (error) {
-//     console.error("Error opening update modal:", error);
-//   }
-// };
 //PATCH
 async function applyUpdates() {
-  // try {
-  // extractUpdatedData();
-  // console.log("More Updated Data:", updatedData);
 
   try {
     // Ensure currentData is populated before proceeding
@@ -425,12 +285,8 @@ async function applyUpdates() {
       console.warn("currentData is not populated yet. Calling openUpdateModal.");
       await openUpdateModal(updateModalId); // Ensure modal is opened and data is populated
     }
-
     collectNewUserData(); // Collect new user data from form
     extractUpdatedData(); // Extract updated data based on currentData and newData
-
-
-
     await $.ajax({
       url: `${url}/${updateModalId}`,
       method: "PATCH",
@@ -441,40 +297,18 @@ async function applyUpdates() {
       console.log("Successfully Updated", response);
           $('#update-botanical-modal').modal('hide');
           location.reload(); 
-  },
-      
+      },
+    error: function(xhr, status, error) {
+    console.error("Error Updating", error);
+    }
+  });
+  } catch (error) {
+  console.error("Error applying updates:", error);
+  }
+}
 
-error: function(xhr, status, error) {
-  console.error("Error Updating", error);
-}
-});
-} catch (error) {
-console.error("Error applying updates:", error);
-}
-}
-  //         // $('#update-botanical-modal').modal('hide');
-  //         //   location.reload(); 
-  //     },
-  //     error: function(xhr, status, error) {
-  //         console.error("Error Updating", error);
-  //     }
-  //       });
- 
 
 // DELETE
-function openDeleteModal(id, e) {
-  console.log(id);
-  let deleteButton = $(e.currentTarget);
-
-  modalId = deleteButton.data('id');
-  $('#delete-modal-id').val(modalId);
-  console.log("modalId:" + modalId);
-}
-
-function logModalId() {
-    console.log("cancel:", modalId);
-}
-
 function deleteLegoSet() {
 console.log(modalId);
 let id = modalId;
@@ -487,28 +321,10 @@ let id = modalId;
   console.log("Lego Set has been deleted", id);
 };
 
-  // updatedData = extractUpdatedData();
-  // if (Object.keys(updatedData).length === 0) {
-  //   alert("No changes detected.");
-  //   return;
-
-    // if ($.isEmptyObject(updatedData)) {
-    //   alert("No changes detected.");
-    //   return;
-    // }
-
-// function resetToOriginalValues() {
-//   if (!originalData) {
-//     console.warn("No original data to reset to.");
-//     return;
-//   }
-
-// $(document).ready(function() {
-//   $("#resetButton").on("click", function() {
-//     resetToOriginalValues();
-// });
-// });
-
-
-
-
+function openDeleteModal(id, e) {
+  // console.log(id);
+  let deleteButton = $(e.currentTarget);
+  modalId = deleteButton.data('id');
+  $('#delete-modal-id').val(modalId);
+  console.log("modalId:" + modalId);
+};
