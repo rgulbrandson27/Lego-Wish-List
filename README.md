@@ -1,1 +1,1 @@
-Data stored in MockAPI.  First 6 Lego Set objects are also stored in db.json file.  Future created categories will have accordions of different colors (yellow, light blue, lavendar, etc.).
+Data stored in MockAPI .  First 6 Lego Set objects (botaical collection) are also stored in db.json file.  Future categories will have accordions with different background colors (yellow - Harry Potter, light blue - Architecture, lavendar - Disney, etc.).
